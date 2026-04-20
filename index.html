@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE SYSTEM</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00f0ff">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+    <div class="scanline"></div>
+    <div id="notification-area"></div>
+
+    <div id="loading-screen">
+        <div class="loader-content">
+            <svg width="80" height="80" viewBox="0 0 100 100" class="svg-spin-slow" style="margin: 0 auto 20px auto; display: block;">
+                <circle cx="50" cy="50" r="45" stroke="var(--primary)" stroke-width="1" stroke-dasharray="10 5" fill="none" opacity="0.5"/>
+                <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" stroke="var(--primary)" stroke-width="2" fill="none" class="svg-glow-pulse"/>
+                <circle cx="50" cy="50" r="10" fill="var(--primary)" opacity="0.8">
+                    <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
+                </circle>
+            </svg>
+            <h1 class="system-title pulse">SYSTEM INITIALIZING</h1>
+            <div class="loading-bar-container"><div class="loading-bar"></div></div>
+            <p class="quote">"You don't miss workouts.<br>You fail quests."</p>
+        </div>
+    </div>
+
+    <div id="app-container">
+        
+        <header class="top-bar" id="main-header">
+            <div class="player-info" style="display: flex; align-items: center; gap: 8px;">
+    <div onclick="app.openProfile()" style="cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 8px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" style="filter: drop-shadow(0 0 8px var(--primary));">
+            <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="rgba(0, 240, 255, 0.2)" stroke="var(--primary)" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4" fill="var(--primary)" class="svg-glow-pulse"/>
+        </svg>
+        <span id="player-name" style="font-weight: bold; letter-spacing: 1px;">PLAYER</span>
+    </div>
+    
+    <span id="hard-mode-badge" class="hidden" style="color:var(--danger); font-size:0.7rem; border:1px solid var(--danger); padding:2px 5px; border-radius:4px; text-shadow:0 0 5px var(--danger);">HARDCORE</span>
+</div>
+            <div class="gold-container">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: coin-spin 3s linear infinite;">
+                    <circle cx="12" cy="12" r="10" stroke="var(--gold)" stroke-width="2" fill="rgba(255, 215, 0, 0.2)"/>
+                    <path d="M12 6V18" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12Z" stroke="var(--gold)" stroke-width="2"/>
+                </svg>
+                <span id="player-gold">0</span>
+            </div>
+
+        </header>
+
+        <main id="status-screen" class="screen active">
+            
+            <div class="hero-section">
+    <img src="The System Instructor.png" alt="System Instructor" class="instructor-image">
+    
+    <div class="rank-banner-container">
+        <div class="rank-glow"></div>
+        <h1 id="main-rank-display">WEAK VESSEL</h1>
+        <p class="rank-subtitle">CURRENT CLASSIFICATION</p>
+        <div class="rank-level">LEVEL: <span id="rank-level-display">1</span></div>
+    </div>
+</div>
+
+            <div class="card glass glowing-border">
+                <div class="card-header">
+                    <h3><i class="fa-solid fa-bolt"></i> EXPERIENCE</h3>
+                    <span id="exp-val" class="highlight-blue">0 / 500</span>
+                </div>
+                <div class="xp-track"><div id="exp-bar" class="xp-fill"></div></div>
+            </div>
+
+            <div id="quest-card-container" class="card glass quest-card" onclick="app.handleQuestClick()">
+                <div class="quest-status">
+                    <span id="quest-indicator" style="display:inline-block; vertical-align:middle; margin-right:5px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" class="svg-float">
+                            <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="var(--primary)" class="svg-glow-pulse"/>
+                        </svg>
+                    </span> 
+                    <span id="quest-status-text">AVAILABLE</span>
+                </div>
+                <h2 id="daily-quest-title">LOADING...</h2>
+                <p id="daily-quest-desc">...</p>
+                <button id="quest-action-btn" class="action-btn">ACCEPT QUEST</button>
+            </div>
+
+            <div class="card glass">
+                <div class="card-header"><h3><i class="fa-solid fa-scroll"></i> SIDE QUESTS</h3></div>
+                <div id="side-quest-list"></div>
+            </div>
+
+            <div class="card glass">
+                <div class="card-header">
+                    <h3><i class="fa-solid fa-chart-simple"></i> STATS</h3>
+                    <span id="points-display" class="points-badge hidden">PTS: 0</span>
+                </div>
+                <div class="stat-grid">
+                    <div class="stat-item"><span class="stat-label">STRENGTH</span><span class="stat-val" id="stat-str">5</span><small class="stat-desc">Gold Gain</small><button class="stat-btn hidden" onclick="app.addStat('str')">+</button></div>
+                    <div class="stat-item"><span class="stat-label">AGILITY</span><span class="stat-val" id="stat-agi">5</span><small class="stat-desc">Crit Chance</small><button class="stat-btn hidden" onclick="app.addStat('agi')">+</button></div>
+                    <div class="stat-item"><span class="stat-label">VITALITY</span><span class="stat-val" id="stat-vit">5</span><small class="stat-desc">XP Required ↓</small><button class="stat-btn hidden" onclick="app.addStat('vit')">+</button></div>
+                    <div class="stat-item"><span class="stat-label">ENDURANCE</span><span class="stat-val" id="stat-end">5</span><small class="stat-desc">Streak Bonus</small><button class="stat-btn hidden" onclick="app.addStat('end')">+</button></div>
+                </div>
+            </div>
+        </main>
+
+        <main id="shop-screen" class="screen">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h2 class="section-title" style="margin-bottom:0; border:none;">SYSTEM SHOP</h2>
+                <div style="display:flex; gap:10px;">
+                    <button class="icon-btn" style="border-color:var(--gold); color:var(--gold);" onclick="app.openCasino()"><i class="fa-solid fa-dice"></i> CASINO</button>
+                    <button class="icon-btn" onclick="app.openInventory()"><i class="fa-solid fa-box-open"></i> INV</button>
+                </div>
+            </div>
+            <div id="shop-list" class="shop-grid"></div>
+        </main>
+
+        <main id="achievements-screen" class="screen">
+            <h2 class="section-title">TITLES & FEATS</h2>
+            <div id="achievements-list" class="achievements-grid"></div>
+        </main>
+
+        <main id="rank-screen" class="screen">
+            <h2 class="section-title">HIERARCHY</h2>
+            <div class="card glass"><ul id="rank-list" class="rank-tree"></ul></div>
+            <div class="card glass" style="margin-top: 20px;">
+                <div class="card-header"><h3><i class="fa-solid fa-calendar-days"></i> SYSTEM LOG</h3></div>
+                <div class="heatmap-scroll"><div id="system-heatmap" class="heatmap-grid"></div></div>
+            </div>
+        </main>
+
+        <main id="settings-screen" class="screen">
+            <h2 class="section-title">SYSTEM CONFIG</h2>
+            <div class="card glass">
+                <h3>VISUAL INTERFACE</h3>
+                <div id="theme-selector-list" class="theme-grid"></div>
+            </div>
+            <div class="card glass">
+                <h3>SCHEDULE EDITOR</h3>
+                <p style="font-size:0.7rem; color:#888; margin-bottom:10px;">Select a day to modify workout plan.</p>
+                <div style="display:flex; gap:10px; margin-bottom:15px;">
+                    <select id="day-selector" class="input-group" style="margin:0; flex:1; background:#000; color:#fff; padding:10px; border:1px solid #444;" onchange="app.renderScheduleEditor()">
+                        <option value="1">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option>
+                        <option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option><option value="0">Sunday</option>
+                    </select>
+                </div>
+                <div class="input-group"><label>Title of Day</label><input type="text" id="day-title-input" onchange="app.updateDayTitle()"></div>
+                <div id="editor-exercise-list" style="margin-bottom:15px;"></div>
+                <div style="background:rgba(0,0,0,0.4); padding:10px; border-radius:5px; border:1px solid #333;">
+                    <p style="font-size:0.7rem; color:var(--primary); margin-bottom:5px;">ADD NEW EXERCISE</p>
+                    <input type="text" id="new-ex-name" placeholder="Name (e.g. Push Ups)" style="width:100%; margin-bottom:5px; background:#000; border:1px solid #333; color:#fff; padding:8px;">
+                    <div style="display:flex; gap:5px;">
+                        <input type="number" id="new-ex-sets" placeholder="Sets" style="width:50%; background:#000; border:1px solid #333; color:#fff; padding:8px;">
+                        <input type="text" id="new-ex-reps" placeholder="Reps" style="width:50%; background:#000; border:1px solid #333; color:#fff; padding:8px;">
+                    </div>
+                    <button class="action-btn small-btn" onclick="app.addExercise()">+ ADD TO LIST</button>
+                </div>
+                <div style="margin-top:15px; text-align:right;"><button class="btn-cancel small-btn" style="width:auto; font-size:0.7rem;" onclick="app.resetSchedule()">RESET DEFAULTS</button></div>
+            </div>
+            <div class="card glass">
+                <div class="settings-mini" style="margin:0;">
+                    <label class="switch-container">
+                        <span style="color:var(--danger); font-weight:bold;">HARD MODE</span>
+                        <input type="checkbox" id="hard-mode-toggle" onchange="app.toggleHardMode()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="card glass" style="border-left: 4px solid var(--gold);">
+                <h3>DATA MANAGEMENT</h3>
+                <div class="action-row" style="display:flex; gap:10px;">
+                    <button class="action-btn small-btn" onclick="app.exportData()"><i class="fa-solid fa-download"></i> EXPORT</button>
+                    <button class="action-btn small-btn" style="border-color:var(--gold); color:var(--gold);" onclick="document.getElementById('import-file').click()"><i class="fa-solid fa-upload"></i> IMPORT</button>
+                </div>
+                <input type="file" id="import-file" style="display:none" accept=".json" onchange="app.importData(this)">
+            </div>
+            <div class="card glass">
+                <h3>PLAYER PROFILE</h3>
+                <div class="input-group"><input type="text" id="edit-name-input" placeholder="Enter Name"></div>
+                <button class="action-btn small-btn" onclick="app.updateName()">UPDATE IDENTITY</button>
+            </div>
+            
+            <div class="card glass" style="text-align: center; border-color: rgba(255, 215, 0, 0.3);">
+                <h3 style="color: var(--gold);"><i class="fa-solid fa-gem"></i> THE DEVELOPER'S TIP JAR</h3>
+                <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 10px;">Help sustain the development of The System.</p>
+                <button class="action-btn small-btn" style="border-color: var(--gold); color: var(--gold);" onclick="app.openSupport()">
+                    OPEN SUPPORT MENU
+                </button>
+            </div>
+
+            <div style="text-align:center; margin-top:20px;"><small style="color:#444; cursor: pointer;" onclick="app.hardReset()">[FACTORY RESET SYSTEM]</small></div>
+        </main>
+
+        <main id="dungeon-screen" class="screen">
+            <div class="dungeon-header"><h2 class="danger-text">DUNGEON INSTANCE</h2><p id="dungeon-subtitle">...</p></div>
+            <div id="exercise-list" class="scroll-area"></div>
+            <div class="card glass bonus-panel">
+                <h3>BONUS OBJECTIVES</h3>
+                <label class="checkbox-row"><input type="checkbox" id="bonus-form"> <span>Perfect Form (+20 EXP)</span></label>
+                <label class="checkbox-row"><input type="checkbox" id="bonus-protein"> <span>Protein Intake (+20 EXP)</span></label>
+                <label class="checkbox-row"><input type="checkbox" id="bonus-fatigue"> <span>Pushed Past Failure (+30 EXP)</span></label>
+            </div>
+            <div class="action-row"><button class="btn-cancel" onclick="app.navigateTo('status-screen')">RETREAT</button><button class="action-btn" onclick="app.finishWorkout()">COMPLETE</button></div>
+        </main>
+    </div>
+
+    <nav class="bottom-nav" id="main-nav">
+        <div class="nav-item active" onclick="app.navigateTo('status-screen')" id="nav-status"><i class="fa-solid fa-house"></i><span>MAIN</span></div>
+        <div class="nav-item" onclick="app.navigateTo('shop-screen')" id="nav-shop"><i class="fa-solid fa-cart-shopping"></i><span>SHOP</span></div>
+        
+        <div class="nav-item" onclick="app.navigateTo('achievements-screen')" id="nav-achievements">
+            <i class="fa-solid fa-trophy"></i><span>TITLES</span>
+            <div id="achievements-badge" class="nav-badge">0</div>
+        </div>
+
+        <div class="nav-item" onclick="app.navigateTo('rank-screen')" id="nav-rank"><i class="fa-solid fa-layer-group"></i><span>RANK</span></div>
+        <div class="nav-item" onclick="app.navigateTo('settings-screen')" id="nav-settings"><i class="fa-solid fa-gear"></i><span>CONFIG</span></div>
+    </nav>
+
+    <div id="level-up-modal" class="modal">
+        <div class="modal-content system-window glass">
+            <h1 class="levelup-text">LEVEL UP</h1>
+            <div class="rank-up-anim"><span id="old-level">1</span> <i class="fa-solid fa-arrow-right"></i> <span id="new-level">2</span></div>
+            <p class="reward-text">+1 STAT POINT AVAILABLE</p>
+            <button class="action-btn" onclick="app.closeModal()">ACKNOWLEDGE</button>
+        </div>
+    </div>
+
+    <div id="inventory-modal" class="modal">
+        <div class="modal-content glass" style="width: 90%; max-width: 400px; text-align: left;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                <h2 style="margin:0;">INVENTORY</h2>
+                <i class="fa-solid fa-xmark" onclick="app.closeInventory()" style="cursor:pointer; font-size:1.5rem;"></i>
+            </div>
+            <div id="inventory-list" class="shop-grid" style="max-height: 400px; overflow-y: auto;"></div>
+        </div>
+    </div>
+
+    <div id="casino-modal" class="modal">
+        <div class="modal-content glass" style="width: 95%; max-width: 450px; text-align: center; border-color: var(--gold); box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                <h2 style="margin:0; color:var(--gold);">THE UNDERWORLD</h2>
+                <i class="fa-solid fa-xmark" onclick="app.closeCasino()" style="cursor:pointer; font-size:1.5rem; color:#888;"></i>
+            </div>
+            
+            <div class="casino-tabs">
+                <button class="casino-tab active" id="tab-cards" onclick="app.switchCasinoGame('cards')">CARDS</button>
+                <button class="casino-tab" id="tab-slots" onclick="app.switchCasinoGame('slots')">SLOTS</button>
+                <button class="casino-tab" id="tab-shells" onclick="app.switchCasinoGame('shells')">SHELLS</button>
+            </div>
+
+            <div id="game-cards" class="casino-game-view active">
+                <p style="font-size:0.8rem; color:#aaa; margin-bottom:10px;">Guess if the next card is Higher or Lower.</p>
+                <div class="casino-table"><div id="casino-card" class="card-display">?</div></div>
+                <div id="casino-controls-cards" style="display:flex; gap:10px; margin-top:15px;">
+                    <button class="buy-btn" onclick="app.playCasinoCard('LOW')" style="border-color:var(--danger); color:var(--danger);"><i class="fa-solid fa-arrow-down"></i> LOW</button>
+                    <button class="buy-btn" onclick="app.playCasinoCard('HIGH')" style="border-color:var(--success); color:var(--success);">HIGH <i class="fa-solid fa-arrow-up"></i></button>
+                </div>
+            </div>
+
+            <div id="game-slots" class="casino-game-view" style="display:none;">
+                <p style="font-size:0.8rem; color:#aaa; margin-bottom:10px;">Match 3 symbols for the Jackpot.</p>
+                <div class="casino-table slots-machine">
+                    <div class="slot-reel" id="slot-1">💎</div>
+                    <div class="slot-reel" id="slot-2">💎</div>
+                    <div class="slot-reel" id="slot-3">💎</div>
+                </div>
+                <button class="action-btn" onclick="app.playSlots()" style="border-color:var(--gold); color:var(--gold); margin-top:15px;"><i class="fa-solid fa-rotate"></i> SPIN (50G)</button>
+            </div>
+
+            <div id="game-shells" class="casino-game-view" style="display:none;">
+                <p style="font-size:0.8rem; color:#aaa; margin-bottom:10px;">Find the Gold Orb. 3x Payout.</p>
+                <div class="casino-table shell-game">
+                    <div class="shell" onclick="app.playShells(0)" id="shell-0"><i class="fa-solid fa-bell"></i><div class="orb hidden"></div></div>
+                    <div class="shell" onclick="app.playShells(1)" id="shell-1"><i class="fa-solid fa-bell"></i><div class="orb hidden"></div></div>
+                    <div class="shell" onclick="app.playShells(2)" id="shell-2"><i class="fa-solid fa-bell"></i><div class="orb hidden"></div></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px; border-top: 1px solid #333; padding-top: 15px;">
+                <p style="font-size:0.8rem; color:#888; margin-bottom:5px;">CURRENT BET (CARDS/SHELLS)</p>
+                
+                <div style="margin: 0 auto; max-width: 150px;">
+                    <input type="number" id="casino-bet" value="50" min="50" style="width: 100%; background: rgba(0,0,0,0.5); border: 1px solid var(--gold); color: #fff; padding: 10px; text-align: center; border-radius: 4px; font-family: var(--font-head); font-size: 1.2rem; outline: none; box-shadow: inset 0 0 10px #000;">
+                </div>
+
+                <p style="font-size:0.8rem; color:#aaa; margin-top:10px;">Gold: <span id="casino-balance" style="color:var(--gold); font-weight:bold;">0</span></p>
+                <p id="casino-msg" style="margin-top:10px; font-size:1rem; height:20px; font-weight:bold;"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="support-modal" class="modal">
+        <div class="modal-content glass" style="width: 90%; max-width: 400px; max-height: 85vh; overflow-y: auto; text-align: center; border-color: var(--gold); box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                <h2 style="margin:0; color:var(--gold); font-family:var(--font-head); letter-spacing: 1px;">
+                    <i class="fa-solid fa-hand-holding-dollar"></i> SUPPORT THE GUILD
+                </h2>
+                <i class="fa-solid fa-xmark" onclick="app.closeSupport()" style="cursor:pointer; font-size:1.5rem; color:#888; transition:0.3s;"></i>
+            </div>
+            
+            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px; line-height: 1.5;">
+                This system is maintained by a solo developer. If this tracker helps you level up in real life, consider dropping some gold in the tip jar to keep the servers running!
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                
+                <button class="action-btn" onclick="window.open('https://ko-fi.com/njaybristol', '_blank')" style="display: flex; align-items: center; justify-content: center; gap: 10px; border-color: var(--primary); color: var(--primary);">
+                    <i class="fa-solid fa-flask"></i> BUY ME AN ELIXIR
+                </button>
+
+                <button class="action-btn" onclick="app.toggleQR()" style="background: rgba(0, 125, 254, 0.1); border-color: #007DFE; color: #007DFE; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <i class="fa-solid fa-qrcode"></i> GCASH
+                </button>
+            </div>
+
+            <div id="qr-container" class="hidden" style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.6); border-radius: 8px; border: 1px solid #333; animation: fadeUp 0.3s ease;">
+                <p style="font-size: 0.8rem; color: #fff; margin-bottom: 10px; letter-spacing: 1px; font-family: var(--font-head);">SCAN TO SEND GOLD</p>
+                <img src="your-qr.png" alt="QR Code" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; border: 2px solid #fff;">
+            </div>
+        </div>
+    </div>
+
+    <!-- ONBOARDING MODAL -->
+    <div id="onboarding-modal" class="modal">
+        <div class="modal-content glass" style="max-width: 400px; text-align: center; border-color: var(--primary);">
+            
+            <!-- Step 1: Player Registration -->
+            <div id="onboarding-step-1">
+                <h2 style="color: var(--primary); margin-bottom: 10px; text-shadow: 0 0 10px var(--primary);">SYSTEM AWAKENING</h2>
+                <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 20px;">A new vessel has been detected. Please register your physical attributes.</p>
+                
+                <div class="input-group" style="text-align: left;">
+                    <input type="text" id="onboard-name" placeholder="Enter Designation (Name)" required>
+                </div>
+                <div style="display:flex; gap:10px; margin-bottom: 10px;">
+                    <div class="input-group" style="flex:1; margin:0;"><input type="number" id="onboard-age" placeholder="Age" required></div>
+                    <div class="input-group" style="flex:1; margin:0;"><input type="number" id="onboard-weight" placeholder="Wt (kg)" required></div>
+                    <div class="input-group" style="flex:1; margin:0;"><input type="number" id="onboard-height" placeholder="Ht (cm)" required></div>
+                </div>
+                <button class="action-btn" onclick="app.submitOnboarding()">INITIALIZE</button>
+            </div>
+
+            <!-- Step 2: Tutorial / Instructions -->
+            <div id="onboarding-step-2" class="hidden">
+                <h2 style="color: var(--gold); margin-bottom: 10px; text-shadow: 0 0 10px var(--gold);">TUTORIAL</h2>
+                <div style="font-size: 0.9rem; color: #ddd; text-align: left; line-height: 1.5; margin-bottom: 20px;">
+                    <p>Welcome to <strong>THE SYSTEM</strong>.</p>
+                    
+                    <p style="color: var(--primary); border-left: 2px solid var(--primary); padding-left: 10px; margin: 15px 0; background: rgba(0, 240, 255, 0.05);">
+                        <strong>CRITICAL INTEL:</strong> Your daily quests are currently set to default parameters. Navigate to the <strong>CONFIG</strong> tab to customize your routines and adapt them to your physical limits.
+                    </p>
+
+                    <p style="color: var(--danger); border-left: 2px solid var(--danger); padding-left: 10px; margin: 15px 0; background: rgba(255, 42, 42, 0.05);">
+                        <strong>HARD MODE:</strong> Toggle this in Config if you seek the ultimate trial. If active, missing a workout will permanently stain your system log with a penalty. High risk, absolute discipline.
+                    </p>
+
+                    <p>Do not skip rest days. Do not fail your quests. Arise, Player.</p>
+                </div>
+                <button class="action-btn" style="border-color: var(--gold); color: var(--gold);" onclick="app.finishOnboarding()">ACCEPT REALITY</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROFILE MODAL -->
+   <div id="profile-modal" class="modal">
+        <div class="modal-content glass" style="max-width: 450px; width: 95%; position: relative; border-color: var(--primary); padding: 25px 20px;">
+            <i class="fa-solid fa-xmark" onclick="app.closeProfile()" style="position: absolute; top: 15px; right: 15px; cursor: pointer; color: var(--text-dim); font-size: 1.5rem; transition: 0.2s; z-index: 10;"></i>
+            
+            <div id="hunter-license-card" class="hunter-license bg-shadow">
+                <div class="license-header">
+                    <div style="text-align: right;">
+                        <div class="license-label">CLASSIFICATION</div>
+                        <div id="profile-rank-display" class="license-rank">WEAK VESSEL</div>
+                    </div>
+                </div>
+                <div class="license-body">
+                    <h2 id="profile-name-display" class="license-name">PLAYER</h2>
+                    <div id="profile-title-display" class="license-title">NO TITLE EQUIPPED</div>
+                </div>
+                <div class="license-footer">
+                    <div class="license-stat"><span>AGE</span><br><span id="lic-age">--</span></div>
+                    <div class="license-stat"><span>WT (KG)</span><br><span id="lic-weight">--</span></div>
+                    <div class="license-stat"><span>HT (CM)</span><br><span id="lic-height">--</span></div>
+                    <div class="license-stat"><span>ISSUED</span><br><span id="profile-start-date">--</span></div>
+                </div>
+            </div>
+
+            <div class="profile-controls-scroll" style="max-height: 45vh; overflow-y: auto; text-align: left; margin-top: 20px; padding-right: 5px;">
+                
+                <div class="input-group">
+                    <label style="color: var(--gold);"><i class="fa-solid fa-award"></i> EQUIP TITLE</label>
+                    <select id="prof-title-select" onchange="app.updateLicensePreview()" style="width: 100%; background: #000; border: 1px solid var(--gold); color: var(--gold); padding: 10px; font-family: var(--font-head); font-weight: bold; font-size: 1rem; outline: none; border-radius: 4px;">
+                        <option value="">-- No Title --</option>
+                    </select>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <label>BACKGROUND</label>
+                    <select id="prof-bg-select" onchange="app.updateLicensePreview()" style="width: 100%; background: rgba(0,0,0,0.5); border: 1px solid #333; color: #fff; padding: 10px; outline: none; border-radius: 4px;">
+                        <option value="bg-shadow">Shadow</option>
+                        <option value="bg-blood">Blood Red</option>
+                        <option value="bg-guild">Guild Gold</option>
+                        <option value="bg-cyber">Neon Cyber</option>
+                    </select>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                    <div class="input-group" style="margin:0;">
+                        <label>AGE</label>
+                        <input type="number" id="prof-age" oninput="app.updateLicensePreview()">
+                    </div>
+                    <div class="input-group" style="margin:0;">
+                        <label>WT (kg)</label>
+                        <input type="number" id="prof-weight" step="0.1" oninput="app.updateLicensePreview()">
+                    </div>
+                    <div class="input-group" style="margin:0;">
+                        <label>HT (cm)</label>
+                        <input type="number" id="prof-height" step="0.1" oninput="app.updateLicensePreview()">
+                    </div>
+                </div>
+
+                <div class="input-group" style="margin:0;">
+                    <label>HUNTER'S BIO</label>
+                    <textarea id="prof-bio" oninput="app.updateLicensePreview()" rows="2" style="width: 100%; background: #000; border: 1px solid #333; color: #fff; padding: 10px; font-family: var(--font-main); border-radius: 4px; resize: none; font-size: 0.9rem; outline: none;" placeholder="Write your backstory..."></textarea>
+                </div>
+            </div>
+            
+            </div>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('System Service Worker Registered', reg))
+                    .catch(err => console.error('Registration failed', err));
+            });
+        }
+    </script>
+</body>
+</html>
