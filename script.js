@@ -294,32 +294,26 @@ const GameData = {
     ],
 
     shopItems: [
-        { id: 'elixir', name: "Elixir of Life", desc: "Restore broken streak.", cost: 500, type: 'consumable', svg: `<svg viewBox="0 0 100 100" class="svg-float"><path d="M40 20 L40 40 L20 80 A10 10 0 0 0 30 95 L70 95 A10 10 0 0 0 80 80 L60 40 L60 20 Z" fill="rgba(255, 42, 42, 0.2)" stroke="var(--danger)" stroke-width="4" stroke-linejoin="round"/><path d="M35 20 L65 20" stroke="var(--danger)" stroke-width="6" stroke-linecap="round"/><path d="M25 70 L75 70 A10 10 0 0 1 70 90 L30 90 A10 10 0 0 1 25 70 Z" fill="var(--danger)"/><circle cx="40" cy="85" r="4" fill="#fff" style="animation: bubble-rise 2s ease-in infinite;"/><circle cx="60" cy="80" r="3" fill="#fff" style="animation: bubble-rise 2.5s ease-in infinite 0.5s;"/><circle cx="50" cy="75" r="5" fill="#fff" style="animation: bubble-rise 1.8s ease-in infinite 1s;"/></svg>` },
-        { id: 'key', name: "Dungeon Key", desc: "Unlock Rest Day.", cost: 300, type: 'consumable', svg: `<svg viewBox="0 0 100 100" style="animation: key-float 3s ease-in-out infinite; transform-origin: center;"><circle cx="30" cy="70" r="15" fill="none" stroke="var(--gold)" stroke-width="6"/><circle cx="30" cy="70" r="6" fill="var(--gold)"/><line x1="41" y1="59" x2="80" y2="20" stroke="var(--gold)" stroke-width="6" stroke-linecap="round"/><line x1="65" y1="35" x2="75" y2="45" stroke="var(--gold)" stroke-width="6" stroke-linecap="round"/><line x1="75" y1="25" x2="85" y2="35" stroke="var(--gold)" stroke-width="6" stroke-linecap="round"/><circle cx="85" cy="15" r="2" fill="#fff" class="svg-glow-pulse"/><circle cx="20" cy="85" r="3" fill="#fff" class="svg-glow-pulse"/></svg>` },
-        { id: 'stealth', name: "Stealth Stone", desc: "Prevent penalty.", cost: 400, type: 'consumable', svg: `<svg viewBox="0 0 100 100" style="animation: stealth-pulse 4s ease-in-out infinite;"><circle cx="50" cy="50" r="40" fill="none" stroke="#7700ff" stroke-width="2" stroke-dasharray="15 10" style="animation: spin-slow 10s linear infinite; transform-origin: center;"/><polygon points="50,20 80,50 50,80 20,50" fill="rgba(213, 0, 255, 0.2)" stroke="#d500ff" stroke-width="4" stroke-linejoin="round"/><line x1="50" y1="20" x2="50" y2="80" stroke="#d500ff" stroke-width="2" opacity="0.6"/><line x1="20" y1="50" x2="80" y2="50" stroke="#d500ff" stroke-width="2" opacity="0.6"/><circle cx="50" cy="50" r="8" fill="#d500ff" class="svg-glow-pulse"/></svg>` },
-        { id: 'xp_boost', name: "XP Booster", desc: "Double XP next workout.", cost: 300, type: 'consumable', svg: `<svg viewBox="0 0 100 100" class="svg-float"><path d="M20 60 L50 30 L80 60" fill="none" stroke="var(--primary)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" class="svg-glow-pulse"/><path d="M20 80 L50 50 L80 80" fill="none" stroke="var(--secondary)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
-        { id: 'wealth_pot', name: "Wealth Potion", desc: "Double Gold next workout.", cost: 300, type: 'consumable', svg: `<svg viewBox="0 0 100 100" class="svg-float"><circle cx="50" cy="60" r="30" fill="rgba(255, 215, 0, 0.2)" stroke="var(--gold)" stroke-width="4"/><path d="M40 30 L40 10 L60 10 L60 30" fill="none" stroke="var(--gold)" stroke-width="4"/><path d="M45 50 L55 50 M50 45 L50 75 M45 60 L55 60" stroke="var(--gold)" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="60" r="15" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="4 4" style="animation: spin-slow 5s linear infinite; transform-origin: 50px 60px;"/></svg>` },
-        { id: 'instant_clear', name: "Instant Clear", desc: "Auto-complete daily quest.", cost: 1000, type: 'consumable', svg: `<svg viewBox="0 0 100 100" class="svg-float"><path d="M55 10 L25 55 L50 55 L45 90 L75 45 L50 45 Z" fill="rgba(255, 255, 255, 0.9)" stroke="var(--gold)" stroke-width="3" stroke-linejoin="round" style="filter: drop-shadow(0 0 10px var(--gold));"/><circle cx="50" cy="50" r="45" fill="none" stroke="var(--gold)" stroke-width="1" stroke-dasharray="5 15" style="animation: spin-slow 8s linear infinite reverse;"/></svg>` },
+        { id: 'elixir', name: "Elixir of Life", desc: "Restore broken streak.", cost: 500, type: 'consumable', svg: `<img src="ElixirofLife.png" alt="Elixir of Life">` },
+        { id: 'key', name: "Dungeon Key", desc: "Unlock Rest Day.", cost: 300, type: 'consumable', svg: `<img src="DungeonKey.png" alt="Dungeon Key">` },
+        { id: 'stealth', name: "Stealth Stone", desc: "Prevent penalty.", cost: 400, type: 'consumable', svg: `<img src="StealthStone.png" alt="Stealth Stone">` },
+        { id: 'xp_boost', name: "XP Booster", desc: "Double XP next workout.", cost: 300, type: 'consumable', svg: `<img src="XPBooster.png" alt="XP Booster">` },
+        { id: 'wealth_pot', name: "Wealth Potion", desc: "Double Gold next workout.", cost: 300, type: 'consumable', svg: `<img src="WealthPotion.png" alt="Wealth Potion">` },
+        { id: 'instant_clear', name: "Instant Clear", desc: "Auto-complete daily quest.", cost: 1000, type: 'consumable', svg: `<img src="InstantClear.png" alt="Instant Clear">` },
         
-        { id: 'ring_greed', name: "Ring of Greed", desc: "+10% Gold (Passive).", cost: 5000, type: 'passive', svg: `<svg viewBox="0 0 100 100"><ellipse cx="50" cy="60" rx="35" ry="15" fill="none" stroke="var(--gold)" stroke-width="6"/><polygon points="50,25 60,40 50,55 40,40" fill="var(--success)" stroke="#000" stroke-width="2" class="svg-glow-pulse"/><path d="M40 40 L60 40 M50 25 L50 55" stroke="#fff" stroke-width="1" opacity="0.5"/></svg>` },
-        { id: 'scouter', name: "Scouter Lens", desc: "Reveal Exact XP Numbers.", cost: 2000, type: 'passive', svg: `<svg viewBox="0 0 100 100" class="svg-float"><path d="M10 50 A40 40 0 0 1 90 50" fill="none" stroke="#444" stroke-width="8" stroke-linecap="round"/><circle cx="75" cy="50" r="20" fill="rgba(0, 255, 157, 0.2)" stroke="var(--success)" stroke-width="4"/><path d="M75 35 L75 45 M75 55 L75 65 M60 50 L70 50 M80 50 L90 50" stroke="var(--success)" stroke-width="2"/><circle cx="75" cy="50" r="2" fill="var(--success)" class="svg-glow-pulse"/></svg>` },
+        { id: 'ring_greed', name: "Ring of Greed", desc: "+10% Gold (Passive).", cost: 5000, type: 'passive', svg: `<img src="RingofGreed.png" alt="Ring of Greed">` },
+        { id: 'scouter', name: "Scouter Lens", desc: "Reveal Exact XP Numbers.", cost: 2000, type: 'passive', svg: `<img src="ScouterLens.png" alt="Scouter Lens">` },
 
-        { id: 'theme_red', name: "Blood Red", desc: "Theme Visual", cost: 1000, type: 'theme', value: 'theme-red', svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="#ff2a2a" class="svg-glow-pulse"/></svg>` },
-        { id: 'theme_green', name: "Toxic Green", desc: "Theme Visual", cost: 1000, type: 'theme', value: 'theme-green', svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="#00ff9d" class="svg-glow-pulse"/></svg>` },
-        { id: 'theme_purple', name: "Shadow Purple", desc: "Theme Visual", cost: 1000, type: 'theme', value: 'theme-purple', svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="#d500ff" class="svg-glow-pulse"/></svg>` },
-        { id: 'theme_light', name: "Cerulean Light", desc: "Theme Visual", cost: 1500, type: 'theme', value: 'theme-light', svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="#1877f2" class="svg-glow-pulse"/></svg>` },
-        { id: 'theme_monarch', name: "Monarch Black", desc: "Theme Visual", cost: 1500, type: 'theme', value: 'theme-monarch', svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="#ffffff" class="svg-glow-pulse"/></svg>` },
-        { id: 'theme_cyber', name: "Cyberpunk Data", desc: "Theme Visual", cost: 1500, type: 'theme', value: 'theme-cyberpunk', svg: `<svg viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" rx="10" fill="none" stroke="#ff00ff" stroke-width="4"/><path d="M20 40 L80 40 M20 60 L80 60" stroke="#00ffff" stroke-width="4"/><circle cx="50" cy="50" r="10" fill="#ffee00" class="svg-glow-pulse"/></svg>` }
+        { id: 'theme_red', name: "Blood Red", desc: "Theme Visual", cost: 1000, type: 'theme', value: 'theme-red', svg: `<img src="BloodyRed.png" alt="Blood Red">` },
+        { id: 'theme_green', name: "Toxic Green", desc: "Theme Visual", cost: 1000, type: 'theme', value: 'theme-green', svg: `<img src="ToxicGreen.png" alt="Toxic Green">` },
+        { id: 'theme_purple', name: "Amethyst", desc: "Theme Visual", cost: 1000, type: 'theme', value: 'theme-purple', svg: `<img src="Amethyst.png" alt="Shadow Purple">` }
     ],
 
     themes: [ 
         { id: '', name: "Default Blue" }, 
         { id: 'theme-red', name: "Blood Red" }, 
         { id: 'theme-green', name: "Toxic Green" }, 
-        { id: 'theme-purple', name: "Shadow Purple" }, 
-        { id: 'theme-light', name: "Cerulean Light" },
-        { id: 'theme-monarch', name: "Monarch Black" },
-        { id: 'theme-cyberpunk', name: "Cyberpunk" }
+        { id: 'theme-purple', name: "Amethyst" }
     ]
 };
 
@@ -356,6 +350,7 @@ const app = {
         streak: 0,
         maxStreak: 0, 
         lastStreakLost: 0, 
+        restTimer: 180,
         activeEffects: { dungeonKey: false, stealthStone: false, xpBoost: false, goldBoost: false }, 
         theme: '', 
         unlockedThemes: [''],
@@ -363,13 +358,20 @@ const app = {
         inventory: { elixir: 0, key: 0, stealth: 0, xp_boost: 0, wealth_pot: 0, instant_clear: 0 }, 
         totalWorkouts: 0,
         history: {}, 
-        milestones: { 
+      milestones: { 
             totalGoldEarned: 0, totalGoldSpent: 0, elixirsUsed: 0, fullClearWorkouts: 0, 
             failurePushed: 0, hasPerfectRun: false, hasZeroExpRun: false, maxSideQuestsInDay: 0, 
             mindAndBody: false, hardcoreWorkouts: 0, casinoBigWin: false 
         },
         schedule: JSON.parse(JSON.stringify(DefaultSchedule))
+    }, // <--- ADD THIS COMMA HERE
+
+    updateRestTimer: function() {
+        this.state.restTimer = parseInt(document.getElementById('setting-rest-timer').value) || 0;
+        this.save();
+        this.notify("TIMER PROTOCOL UPDATED.");
     },
+
 
     init: function() {
         console.log("System initializing...");
@@ -492,9 +494,24 @@ const app = {
     },
 
     finishOnboarding: function() {
+        // Hide the tutorial step
+        document.getElementById('onboarding-modal').style.display = 'none';
+        
+        // Open the Mechanics Rules Modal
+        const mechModal = document.getElementById('mechanics-modal');
+        if(mechModal) {
+            mechModal.style.display = 'flex';
+            if(window.sfx) sfx.playTone(150, 'sawtooth', 0.6, 0.2); // Play a warning tone
+        }
+    },
+
+    acknowledgeMechanics: function() {
+        // Officially mark the player as onboarded
         this.state.hasCompletedOnboarding = true;
         this.save();
-        document.getElementById('onboarding-modal').style.display = 'none';
+        
+        // Hide the rules modal and trigger the level up sound to start the game!
+        document.getElementById('mechanics-modal').style.display = 'none';
         sfx.levelUp(); 
     },
 
@@ -544,19 +561,101 @@ const app = {
         root.style.setProperty('--str-shake', `${strShake}px`);
     },
 
-    checkDailyReset: function() {
+   checkDailyReset: function() {
         const today = new Date().toDateString();
         
         if(this.state.lastLogin !== today) {
+            // 1. Reset Side Quests
             const shuffled = [...GameData.sideQuestsPool].sort(() => 0.5 - Math.random());
             const questCount = Math.floor(Math.random() * 3) + 3; 
             this.state.activeSideQuests = shuffled.slice(0, questCount);
-            
             this.state.completedSideQuests = [];
             
             const yesterday = new Date();
             yesterday.setDate(yesterday.getDate() - 1);
             
+            // 2. THE PUNISHMENT PROTOCOL (NOW WITH DE-LEVELING)
+            if (this.state.lastLogin) {
+                const lastDate = new Date(this.state.lastLogin);
+                const currDate = new Date(today);
+                
+              const diffTime = Math.abs(currDate - lastDate);
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                
+                let missedDays = diffDays;
+                
+                if (this.state.questCompletedDate === this.state.lastLogin) {
+                    missedDays = diffDays - 1;
+                }
+
+                // -> NEW RED GATE LOGIC <-
+                if (!this.state.isBossActive) {
+                    this.state.daysUntilBoss -= diffDays;
+                    if (this.state.daysUntilBoss <= 0) {
+                        this.state.isBossActive = true;
+                        this.state.daysUntilBoss = 0;
+                    }
+                }
+                
+                if (missedDays > 0) {
+                    let penalty = missedDays * 100;
+                    let bossFailed = false;
+
+                    // If they abandoned a Red Gate!
+                    if (this.state.isBossActive) {
+                        penalty += 100; // Extra 100 EXP
+                        this.state.gold = Math.max(0, this.state.gold - 100);
+                        bossFailed = true;
+                        this.state.isBossActive = false; // Reset it after failure
+                        this.state.daysUntilBoss = 15;
+                    }
+
+                    this.state.exp -= penalty;
+                    if (this.state.exp < 0) this.state.exp = 0;
+                    
+                    let deLeveled = false;
+                    let statsLost = 0;
+
+                    while (this.state.level > 1 && this.state.exp < GameData.levels[this.state.level - 1]) {
+                        this.state.level--;
+                        deLeveled = true;
+                        this.state.rank = GameData.ranks[this.state.level - 1] || "Weak Vessel";
+                        
+                        if (this.state.points > 0) {
+                            this.state.points--; 
+                        } else {
+                            const upgradableStats = Object.keys(this.state.stats).filter(s => this.state.stats[s] > 5);
+                            if (upgradableStats.length > 0) {
+                                const randomStat = upgradableStats[Math.floor(Math.random() * upgradableStats.length)];
+                                this.state.stats[randomStat]--;
+                                statsLost++;
+                            }
+                        }
+                    }
+
+                    setTimeout(() => {
+                        const pModal = document.getElementById('penalty-modal');
+                        if (pModal) {
+                            document.getElementById('penalty-days').innerText = missedDays;
+                            
+                            const amtDisplay = document.getElementById('penalty-amount');
+                            let demoteTxt = "";
+                            
+                            if (bossFailed) demoteTxt += `<br><span style="font-size: 0.85rem; color: #ffaa00; display: block; margin-top: 10px; text-shadow: none; letter-spacing: 2px;">RED GATE FAILED (-100 GOLD)</span>`;
+                            if (deLeveled) {
+                                demoteTxt += `<br><span style="font-size: 0.85rem; color: #ff2a2a; display: block; margin-top: 5px; text-shadow: none; letter-spacing: 2px;">RANK DEMOTED TO LVL ${this.state.level}</span>`;
+                                if (statsLost > 0) demoteTxt += `<span style="font-size: 0.75rem; color: #aaa; display: block; margin-top: 5px; text-shadow: none;">${statsLost} STAT POINTS PERMANENTLY LOST</span>`;
+                            }
+                            
+                            amtDisplay.innerHTML = `${penalty}${demoteTxt}`;
+                            pModal.style.display = 'flex';
+                            if(window.sfx) sfx.playTone(150, 'sawtooth', 0.6, 0.2); 
+                        }
+                    }, 1800); 
+                }
+            }
+            
+            // 3. Streak Break Logic
             if (this.state.lastLogin !== yesterday.toDateString()) {
                 if(this.state.streak > 0) {
                     this.state.lastStreakLost = this.state.streak; 
@@ -604,12 +703,12 @@ const app = {
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
         document.getElementById(screenId).classList.add('active');
 
-        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+       document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
         
         if(screenId === 'status-screen') document.getElementById('nav-status')?.classList.add('active');
-        if(screenId === 'shop-screen') { 
+        if(screenId === 'shop-screen' || screenId === 'inventory-screen') { 
             document.getElementById('nav-shop')?.classList.add('active'); 
-            this.renderShop(); 
+            if (screenId === 'shop-screen') this.renderShop(); 
         }
         if(screenId === 'achievements-screen') { 
             document.getElementById('nav-achievements')?.classList.add('active'); 
@@ -719,6 +818,9 @@ const app = {
 
     // --- SETTINGS & SCHEDULE BUILDER ---
     renderSettings: function() {
+
+        const timerInput = document.getElementById('setting-rest-timer');
+        if(timerInput) timerInput.value = this.state.restTimer;
         document.getElementById('edit-name-input').value = this.state.name;
         
         const themeList = document.getElementById('theme-selector-list');
@@ -1033,7 +1135,7 @@ const app = {
         const msg = document.getElementById('casino-msg');
 
         if (isNaN(bet) || bet < 50) {
-            this.notifyMsg(msg, "MIN BET IS 50G", "var(--danger)");
+            this.notifyMsg(msg, "Minimum bet is 50 Gold", "var(--danger)");
             return;
         }
 
@@ -1099,54 +1201,134 @@ const app = {
     },
 
     // --- SHOP & INVENTORY SYSTEM ---
+    currentItemId: null,
+
     renderShop: function() {
         const list = document.getElementById('shop-list');
         list.innerHTML = '';
         
         GameData.shopItems.forEach(item => {
-            let btnText = `BUY (${item.cost})`;
-            let disabled = '';
-            let quantityHtml = '';
+            let statusIndicator = '';
 
-            if(item.type === 'consumable') {
-                quantityHtml = `
-                    <div style="margin: 10px 0;">
-                        <input type="number" id="qty-${item.id}" value="1" min="1" style="width: 80px; background: rgba(0,0,0,0.5); border: 1px solid #444; color: #fff; padding: 5px; text-align: center; border-radius: 4px; font-family: var(--font-head); outline: none;">
-                    </div>
-                `;
-            } else if(item.type === 'theme') {
-                if(this.state.unlockedThemes.includes(item.value)) { 
-                    btnText = "OWNED"; 
-                    disabled = 'disabled'; 
-                }
-            } else if(item.type === 'passive') {
-                if(this.state.unlockedPassives.includes(item.id)) { 
-                    btnText = "ACTIVE"; 
-                    disabled = 'disabled'; 
-                }
+            // Check if items are already owned
+            if(item.type === 'theme' && this.state.unlockedThemes.includes(item.value)) { 
+                statusIndicator = `<div style="font-size: 0.65rem; color: var(--text-dim); margin-top: 5px; font-family: var(--font-head); font-weight: bold;"><i class="fa-solid fa-check"></i> OWNED</div>`;
+            } else if(item.type === 'passive' && this.state.unlockedPassives.includes(item.id)) { 
+                statusIndicator = `<div style="font-size: 0.65rem; color: var(--success); margin-top: 5px; font-family: var(--font-head); font-weight: bold;"><i class="fa-solid fa-bolt"></i> ACTIVE</div>`;
+            } else {
+                statusIndicator = `<div class="shop-price"><svg width="14" height="14" style="vertical-align: middle; transform: translateY(-1px); margin-right: 8px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path style="fill:#FFDA44;" d="M256,512C114.842,512,0,397.158,0,256S114.842,0,256,0s256,114.842,256,256S397.158,512,256,512z"></path> <path style="fill:#FFA733;" d="M256,0L256,0v5.565V512l0,0c141.158,0,256-114.842,256-256S397.158,0,256,0z"></path> <path style="fill:#EE8700;" d="M256,439.652c-101.266,0-183.652-82.391-183.652-183.652S154.733,72.348,256,72.348 S439.652,154.739,439.652,256S357.266,439.652,256,439.652z"></path> <path style="fill:#CC7400;" d="M439.652,256c0-101.261-82.386-183.652-183.652-183.652v367.304 C357.266,439.652,439.652,357.261,439.652,256z"></path> <path style="fill:#FFDA44;" d="M263.805,241.239c-17.517-9.261-35.631-18.826-35.631-29.761c0-15.348,12.484-27.826,27.826-27.826 s27.826,12.478,27.826,27.826c0,9.217,7.473,16.696,16.696,16.696s16.696-7.479,16.696-16.696c0-27.956-18.867-51.548-44.522-58.842 v-7.94c0-9.217-7.473-16.696-16.696-16.696s-16.696,7.479-16.696,16.696v7.94c-25.655,7.294-44.522,30.886-44.522,58.842 c0,31.044,29.619,46.707,53.413,59.283c17.517,9.261,35.631,18.826,35.631,29.761c0,15.348-12.484,27.826-27.826,27.826 s-27.826-12.478-27.826-27.826c0-9.217-7.473-16.696-16.696-16.696s-16.696,7.479-16.696,16.696 c0,27.956,18.867,51.548,44.522,58.842v7.94c0,9.217,7.473,16.696,16.696,16.696s16.696-7.479,16.696-16.696v-7.94 c25.655-7.294,44.522-30.886,44.522-58.842C317.217,269.478,287.598,253.815,263.805,241.239z"></path> <g> <path style="fill:#FFA733;" d="M272.696,367.304v-7.94c25.655-7.294,44.522-30.886,44.522-58.842 c0-31.044-29.619-46.707-53.413-59.283c-2.616-1.384-5.226-2.777-7.805-4.176v37.875c14.699,7.976,27.826,16.283,27.826,25.584 c0,15.348-12.484,27.826-27.826,27.826V384C265.223,384,272.696,376.521,272.696,367.304z"></path> <path style="fill:#FFA733;" d="M283.826,211.478c0,9.217,7.473,16.696,16.696,16.696s16.696-7.479,16.696-16.696 c0-27.956-18.867-51.548-44.522-58.842v-7.94c0-9.217-7.473-16.696-16.696-16.696v55.652 C271.342,183.652,283.826,196.13,283.826,211.478z"></path> </g> </g></svg>${item.cost}</div>`;
             }
-            
+
+            // Clean, compact grid item - triggers modal on click
             list.innerHTML += `
-                <div class="shop-item">
+                <div class="shop-item" onclick="app.openItemModal('${item.id}')">
                     <div class="shop-icon-container">
                         ${item.svg}
                     </div>
-                    <strong>${item.name}</strong>
-                    <p style="font-size:0.7rem; color:#888;">${item.desc}</p>
-                    <div class="shop-price"><i class="fa-solid fa-coins"></i> ${item.cost}</div>
-                    ${quantityHtml}
-                    <button class="buy-btn" onclick="app.buyItem('${item.id}')" ${disabled}>${btnText}</button>
+                    <div class="shop-item-name">${item.name}</div>
+                    ${statusIndicator}
                 </div>
             `;
         });
     },
 
-    buyItem: function(itemId) {
+    openItemModal: function(itemId) {
+        this.currentItemId = itemId;
         const item = GameData.shopItems.find(i => i.id === itemId);
+        if(!item) return;
+
+        // Populate Modal Details
+        document.getElementById('modal-item-icon').innerHTML = item.svg;
+        
+        // Scale up the SVG for the modal
+       const img = document.getElementById('modal-item-icon').querySelector('img, svg');
+        if(img) { 
+            img.style.width = '100%'; 
+            img.style.height = '100%'; 
+            img.style.objectFit = 'contain'; /* Forces the modal to respect the PNG's true shape */
+        }
+        document.getElementById('modal-item-name').innerText = item.name;
+        document.getElementById('modal-item-desc').innerText = item.desc;
+        
+        const qtyContainer = document.getElementById('modal-item-qty-container');
+        const qtyInput = document.getElementById('modal-item-qty');
+        const buyBtn = document.getElementById('modal-buy-btn');
+
+        let btnText = `CONFIRM PURCHASE`;
+        let disabled = false;
+        
+        qtyInput.value = 1;
+
+        // Show/Hide Quantity Input based on item type
+        if(item.type === 'consumable') {
+            qtyContainer.style.display = 'block';
+        } else {
+            qtyContainer.style.display = 'none';
+            if(item.type === 'theme' && this.state.unlockedThemes.includes(item.value)) { 
+                btnText = "ALREADY OWNED"; 
+                disabled = true; 
+            } else if(item.type === 'passive' && this.state.unlockedPassives.includes(item.id)) { 
+                btnText = "PASSIVE ACTIVE"; 
+                disabled = true; 
+            }
+        }
+
+        // Apply Button States
+        buyBtn.innerText = btnText;
+        buyBtn.disabled = disabled;
+        
+        if(disabled) {
+            buyBtn.style.background = 'transparent';
+            buyBtn.style.borderColor = '#333';
+            buyBtn.style.color = '#555';
+            document.getElementById('modal-item-price').innerHTML = `<i class="fa-solid fa-check"></i> ACQUIRED`;
+            document.getElementById('modal-item-price').style.color = 'var(--text-dim)';
+        } else {
+            buyBtn.style.background = '';
+            buyBtn.style.borderColor = '';
+            buyBtn.style.color = '';
+            this.updateModalPrice(); 
+        }
+
+        document.getElementById('shop-item-modal').style.display = 'flex';
+    },
+
+    closeItemModal: function() {
+        document.getElementById('shop-item-modal').style.display = 'none';
+        this.currentItemId = null;
+    },
+
+    updateModalPrice: function() {
+        if(!this.currentItemId) return;
+        const item = GameData.shopItems.find(i => i.id === this.currentItemId);
+        
+        let qty = 1;
+        if(item.type === 'consumable') {
+            qty = parseInt(document.getElementById('modal-item-qty').value) || 1;
+            if(qty < 1) qty = 1;
+        }
+        
+        const total = item.cost * qty;
+        const priceDisplay = document.getElementById('modal-item-price');
+        priceDisplay.innerHTML = `<i class="fa-solid fa-coins"></i> ${total}`;
+        
+        // Color code red if they can't afford it
+        if(this.state.gold < total) {
+            priceDisplay.style.color = 'var(--danger)';
+            priceDisplay.style.textShadow = '0 0 10px rgba(255, 42, 42, 0.4)';
+        } else {
+            priceDisplay.style.color = 'var(--gold)';
+            priceDisplay.style.textShadow = '0 0 10px rgba(255, 215, 0, 0.4)';
+        }
+    },
+
+    confirmPurchase: function() {
+        if(!this.currentItemId) return;
+        const item = GameData.shopItems.find(i => i.id === this.currentItemId);
         let qty = 1;
         
         if(item.type === 'consumable') {
-            qty = parseInt(document.getElementById(`qty-${itemId}`)?.value || 1);
+            qty = parseInt(document.getElementById('modal-item-qty').value) || 1;
             if (isNaN(qty) || qty < 1) qty = 1;
         }
 
@@ -1159,10 +1341,10 @@ const app = {
 
             if(item.type === 'theme') {
                 this.state.unlockedThemes.push(item.value);
-                this.notify(`${item.name} Unlocked! Check Settings.`);
+                this.notify(`${item.name} Unlocked!`);
             } else if (item.type === 'passive') {
                 this.state.unlockedPassives.push(item.id);
-                this.notify(`${item.name} Acquired! Effect Active.`);
+                this.notify(`${item.name} Acquired!`);
             } else {
                 if(!this.state.inventory[item.id]) this.state.inventory[item.id] = 0;
                 this.state.inventory[item.id] += qty;
@@ -1172,18 +1354,22 @@ const app = {
             this.save();
             this.renderStatus(); 
             this.renderShop(); 
+            this.closeItemModal(); 
         } else {
             this.notify("INSUFFICIENT GOLD.");
+            const modalEl = document.getElementById('shop-item-modal').querySelector('.modal-content');
+            modalEl.classList.add('str-shake-active');
+            setTimeout(() => modalEl.classList.remove('str-shake-active'), 500);
         }
     },
 
-    openInventory: function() {
+  openInventory: function() {
         this.renderInventory();
-        document.getElementById('inventory-modal').style.display = 'flex';
+        this.navigateTo('inventory-screen'); // Switches the page instead of opening a modal
     },
 
     closeInventory: function() {
-        document.getElementById('inventory-modal').style.display = 'none';
+        this.navigateTo('shop-screen');
     },
 
     renderInventory: function() {
@@ -1199,26 +1385,36 @@ const app = {
                 hasItems = true;
                 const gameItem = GameData.shopItems.find(i => i.id === itemId);
                 
+                // Extremely strict inline styling to FORCE the PNG to stay exactly 40x40 pixels
+                const safeImage = gameItem.svg.replace('<img', '<img style="width: 40px; height: 40px; min-width: 40px; max-width: 40px; object-fit: contain; display: block;"');
+                
                 list.innerHTML += `
-                    <div class="shop-item" style="flex-direction:row; align-items:center; text-align:left; padding:10px;">
-                        <div style="flex:1;">
-                            <div style="width: 30px; height: 30px; margin-right: 15px; display:inline-block; vertical-align:middle;">
-                                ${gameItem.svg}
-                            </div>
-                            <strong style="vertical-align:middle;">${gameItem.name}</strong>
-                            <div style="font-size:0.8rem; color:#888;">Owned: ${count}</div>
+                    <div style="background: rgba(0,0,0,0.5); border: 1px solid rgba(0,240,255,0.2); border-radius: 8px; padding: 15px; display: flex; align-items: center; justify-content: space-between; gap: 15px; box-shadow: inset 0 0 10px rgba(0,0,0,0.3);">
+                        
+                        ${safeImage}
+                        
+                        <div style="flex: 1; min-width: 0;">
+                            <h4 style="margin: 0 0 5px 0; font-family: var(--font-head); font-size: 1.15rem; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 1px;">${gameItem.name}</h4>
+                            <div style="font-size: 0.8rem; color: var(--text-dim); letter-spacing: 1px;">OWNED: <span style="color: var(--gold); font-weight: bold;">${count}</span></div>
                         </div>
-                        <button class="buy-btn" style="width:auto; padding:5px 15px;" onclick="app.useItem('${itemId}')">USE</button>
+                        
+                        <div style="flex-shrink: 0;">
+                            <button class="action-btn" style="width: auto; padding: 10px 20px; margin: 0; font-size: 0.9rem;" onclick="app.useItem('${itemId}')">USE</button>
+                        </div>
                     </div>
                 `;
             }
         });
         
         if(!hasItems) {
-            list.innerHTML = "<p style='text-align:center; color:#666; width:100%;'>Inventory is empty.</p>";
+            list.innerHTML = `
+                <div style="text-align: center; padding: 50px 20px; background: rgba(0,0,0,0.3); border: 1px dashed #333; border-radius: 8px;">
+                    <i class="fa-solid fa-spider" style="font-size: 2rem; color: #444; margin-bottom: 10px;"></i>
+                    <p style="color: #666; font-family: var(--font-head); letter-spacing: 1px; margin: 0;">INVENTORY IS EMPTY</p>
+                </div>
+            `;
         }
     },
-
     useItem: function(itemId) {
         if(this.state.inventory[itemId] > 0) {
             let used = false;
@@ -1305,8 +1501,11 @@ const app = {
         }
     },
 
+
     // --- WORKOUT LOGIC ---
     finishWorkout: function(isInstant = false) {
+    this.closeRestTimer();
+
         let gainedExp = 0; 
         let historyStatus = 'NORMAL';
 
@@ -1371,10 +1570,22 @@ const app = {
             this.notify("WEALTH POTION APPLIED!");
         }
 
-        if(this.state.unlockedPassives.includes('ring_greed')) {
+       if(this.state.unlockedPassives.includes('ring_greed')) {
             finalGold = Math.floor(finalGold * 1.1);
         }
 
+        // ---> NEW: RED GATE CLEAR <---
+        if (this.state.isBossActive) {
+            if (!isInstant) {
+                gainedExp *= 3; // 300% EXP Reward!
+                this.notify("RED GATE CLEARED! 3X EXP GAINED!");
+            } else {
+                this.notify("RED GATE BYPASSED."); // You can't use a cheat ticket to get 3x EXP!
+            }
+            this.state.isBossActive = false; // Turn the boss off
+            this.state.daysUntilBoss = 15;   // Reset the 15 day countdown
+        }
+        
         const todayStr = new Date().toDateString();
         this.state.history[todayStr] = historyStatus;
         this.state.gold += finalGold;
@@ -1422,7 +1633,74 @@ const app = {
         this.navigateTo('status-screen');
         this.renderStatus(); 
     },
+// --- REST TIMER SYSTEM ---
+    timerInterval: null,
+    currentTimer: 0,
+    
+    triggerRestTimer: function(checkbox) {
+        if (checkbox.checked) {
+            // Find the specific exercise card
+            const card = checkbox.closest('.mission-card');
+            if (card) {
+                const totalChecks = card.querySelectorAll('.set-check').length;
+                const completedChecks = card.querySelectorAll('.set-check:checked').length;
+                
+                // If ALL sets for this specific exercise are checked off
+                if (totalChecks > 0 && totalChecks === completedChecks) {
+                    card.classList.add('completed-objective'); 
+                    
+                    if (this.state.restTimer > 0) {
+                        this.startRestTimer(this.state.restTimer);
+                    }
+                }
+            }
+        }
+    },
 
+    startRestTimer: function(seconds) {
+        if(this.timerInterval) clearInterval(this.timerInterval);
+        this.currentTimer = seconds;
+        
+        const overlay = document.getElementById('rest-timer-overlay');
+        overlay.classList.remove('hidden');
+        this.updateTimerDisplay(); // This is what crashed without the function below!
+        
+        // SYSTEM LOCK: Disable all checkboxes so the player is forced to rest
+        document.querySelectorAll('.set-check').forEach(cb => cb.disabled = true);
+        
+        this.timerInterval = setInterval(() => {
+            this.currentTimer--;
+            if(this.currentTimer <= 0) {
+                this.closeRestTimer();
+                sfx.playTone(880, 'square', 0.4, 0.1); 
+                this.notify("REST COMPLETE. RESUME MISSION.");
+            } else {
+                this.updateTimerDisplay();
+            }
+        }, 1000);
+    },
+
+    modifyTimer: function(sec) {
+        this.currentTimer += sec;
+        this.updateTimerDisplay();
+    },
+
+    updateTimerDisplay: function() {
+        const display = document.getElementById('rest-timer-display');
+        if(!display) return;
+        const mins = Math.floor(this.currentTimer / 60).toString().padStart(2, '0');
+        const secs = (this.currentTimer % 60).toString().padStart(2, '0');
+        display.innerText = `${mins}:${secs}`;
+    },
+
+    closeRestTimer: function() {
+        if(this.timerInterval) clearInterval(this.timerInterval);
+        const overlay = document.getElementById('rest-timer-overlay');
+        if(overlay) overlay.classList.add('hidden');
+        
+        // SYSTEM UNLOCK: Re-enable the checkboxes
+        document.querySelectorAll('.set-check').forEach(cb => cb.disabled = false);
+    },
     // --- VISUALIZATION (HEATMAP) ---
     renderHeatmap: function() {
         const grid = document.getElementById('system-heatmap');
@@ -1464,12 +1742,22 @@ const app = {
     renderStatus: function() {
         document.getElementById('player-name').innerText = this.state.name;
         document.getElementById('main-rank-display').innerText = this.state.rank;
+        
+        // ---> NEW: DYNAMIC CHARACTER EVOLUTION <---
+        const avatarImg = document.getElementById('instructor-avatar');
+        if (avatarImg) {
+            // This takes a rank like "Shadow Soldier", removes the space, and adds ".png"
+            const fileName = this.state.rank.replace(/\s+/g, '') + '.png';
+            avatarImg.src = fileName;
+        }
+        
         const oldLevelDisplay = document.getElementById('player-level');
-if (oldLevelDisplay) oldLevelDisplay.innerText = this.state.level;
+        if (oldLevelDisplay) oldLevelDisplay.innerText = this.state.level;
         if(document.getElementById('rank-level-display')) {
-    document.getElementById('rank-level-display').innerText = this.state.level;
-}
-        document.getElementById('player-gold').innerText = this.state.gold; 
+            document.getElementById('rank-level-display').innerText = this.state.level;
+        }
+        document.getElementById('player-gold').innerText = this.state.gold;
+    
         
         document.getElementById('stat-str').innerText = this.state.stats.str;
         document.getElementById('stat-agi').innerText = this.state.stats.agi;
@@ -1532,7 +1820,27 @@ if (oldLevelDisplay) oldLevelDisplay.innerText = this.state.level;
         questCard.classList.remove('locked', 'complete');
         
         // NEW: Allow REST_ACTIVE to display the button
-        if (quest.status === "ACTIVE" || quest.status === "REST_ACTIVE") {
+        // Ensure we remove 'boss-mode' so normal quests don't glow red
+        questCard.classList.remove('locked', 'complete', 'boss-mode');
+        
+        if (quest.status === "BOSS") {
+            questCard.classList.add('boss-mode'); // Triggers portal CSS & Red Icon
+            
+            document.getElementById('quest-status-text').innerText = "DANGER - BOSS";
+            document.getElementById('quest-status-text').style.color = "var(--danger)";
+            
+            actionBtn.innerText = "ENTER RED GATE"; 
+            actionBtn.style.display = "block"; 
+            actionBtn.style.borderColor = "var(--danger)";
+            actionBtn.style.color = "var(--danger)";
+            
+            questInd.style.display = "inline-block";
+            
+        } else if (quest.status === "ACTIVE" || quest.status === "REST_ACTIVE") {
+            document.getElementById('quest-status-text').style.color = "var(--success)";
+            actionBtn.style.borderColor = "";
+            actionBtn.style.color = "";
+
             actionBtn.innerText = "ACCEPT QUEST"; 
             actionBtn.style.display = "block"; 
             questInd.style.display = "inline-block";
@@ -1673,6 +1981,32 @@ if (oldLevelDisplay) oldLevelDisplay.innerText = this.state.level;
         }
 
         const questData = this.state.schedule[dayIndex];
+        
+        // REST DAY BYPASS
+        if (!questData) {
+            if (this.state.activeEffects.dungeonKey) {
+                return { status: "ACTIVE", title: "EXTRA DUNGEON", desc: "Key Used.", data: { title: "EXTRA DUNGEON", exercises: [{name: "Push Ups", sets: 3, reps: "Failure"}, {name: "Squats", sets: 3, reps: "20"}, {name: "Plank", sets: 3, reps: "45s"}, {name: "Burpees", sets: 3, reps: "10"}] } };
+            }
+            return { status: "REST_ACTIVE", title: "REST DAY", desc: "Recovery protocols active." };
+        }
+
+       // RED GATE GENERATOR
+        if (this.state.isBossActive && questData) {
+            let bossData = JSON.parse(JSON.stringify(questData));
+            bossData.title = "RED GATE: " + questData.title;
+            
+            bossData.exercises.forEach(ex => {
+                ex.sets = Math.ceil(ex.sets * 1.15); // +15% Total Sets
+            });
+            
+            return { 
+                status: "BOSS", 
+                title: "RED GATE DETECTED", 
+                desc: "Massive threat detected. Workload increased by 15%. 3x EXP Reward.", 
+                data: bossData 
+            };
+        }
+
         return { 
             status: "ACTIVE", 
             title: questData.title, 
@@ -1683,10 +2017,11 @@ if (oldLevelDisplay) oldLevelDisplay.innerText = this.state.level;
 
     handleQuestClick: function() {
         const quest = this.getDailyQuestStatus();
-        if (quest.status === "ACTIVE") {
+        // --> ADDED || quest.status === "BOSS" TO ALLOW ENTRY <--
+        if (quest.status === "ACTIVE" || quest.status === "BOSS") {
             this.startWorkout(quest.data);
         } else if (quest.status === "REST_ACTIVE") {
-            this.claimRestDay(); // Triggers the instant EXP claim
+            this.claimRestDay(); 
         }
     },
 
@@ -1731,29 +2066,59 @@ if (oldLevelDisplay) oldLevelDisplay.innerText = this.state.level;
 
     startWorkout: function(questData) {
         const list = document.getElementById('exercise-list');
-        document.getElementById('dungeon-subtitle').innerText = questData.title;
+        const isBoss = questData.title.startsWith("RED GATE");
+        
+        // Dungeon Header Overrides
+        const headerBox = document.getElementById('dungeon-subtitle').parentElement;
+        const headerBar = headerBox.querySelector('div');
+        const headerTitle = headerBox.querySelector('h2');
+        
+        if (isBoss) {
+            headerBox.style.borderColor = "var(--danger)";
+            headerBox.style.background = "rgba(255, 42, 42, 0.05)";
+            headerBox.style.boxShadow = "inset 0 0 20px rgba(255, 42, 42, 0.1)";
+            headerBar.style.background = "var(--danger)";
+            headerTitle.style.color = "var(--danger)";
+            headerTitle.innerHTML = `<i class="fa-solid fa-skull"></i> RED GATE ACTIVE`;
+            document.getElementById('dungeon-subtitle').style.color = "#ffaa00";
+        } else {
+            // Restore Normal UI
+            headerBox.style.borderColor = "var(--primary)";
+            headerBox.style.background = "rgba(0, 240, 255, 0.05)";
+            headerBox.style.boxShadow = "none";
+            headerBar.style.background = "var(--primary)";
+            headerTitle.style.color = "var(--primary)";
+            headerTitle.innerHTML = `<i class="fa-solid fa-crosshairs"></i> ACTIVE MISSION`;
+            document.getElementById('dungeon-subtitle').style.color = "#fff";
+        }
+
+        document.getElementById('dungeon-subtitle').innerText = questData.title.toUpperCase();
         list.innerHTML = '';
         
         questData.exercises.forEach((ex) => {
             let setsHtml = '';
             for(let s = 0; s < ex.sets; s++) { 
-                setsHtml += `<input type="checkbox" class="set-check" data-exp="10">`; 
+                setsHtml += `<input type="checkbox" class="set-check" data-exp="10" onchange="app.triggerRestTimer(this)">`; 
             }
             
+            // Swap to blood red UI for boss fights
+            const cardClass = isBoss ? "mission-card red-gate-card" : "mission-card";
+            const badgeColor = isBoss ? "var(--danger)" : "var(--primary)";
+            const badgeBg = isBoss ? "rgba(255, 42, 42, 0.1)" : "rgba(0, 240, 255, 0.1)";
+
             list.innerHTML += `
-                <div class="exercise-card">
-                    <div style="display:flex; justify-content:space-between;">
-                        <strong>${ex.name}</strong>
-                        <span style="color:#666">${ex.sets} x ${ex.reps}</span>
+                <div class="${cardClass}">
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 12px;">
+                        <strong style="font-family: var(--font-head); font-size: 1.2rem; color: #fff; letter-spacing: 1px;">${ex.name.toUpperCase()}</strong>
+                        <span style="color:${badgeColor}; font-family: var(--font-head); font-weight: bold; background: ${badgeBg}; padding: 3px 8px; border-radius: 4px; box-shadow: 0 0 10px ${badgeBg};">${ex.sets} x ${ex.reps}</span>
                     </div>
-                    <div class="set-row">${setsHtml}</div>
+                    <div class="set-row" style="justify-content: flex-start; gap: 12px;">${setsHtml}</div>
                 </div>
             `;
         });
         
         this.navigateTo('dungeon-screen');
     },
-
     updateName: function() { 
         const newName = document.getElementById('edit-name-input').value; 
         if(newName.trim() !== "") { 
@@ -1849,6 +2214,11 @@ if (oldLevelDisplay) oldLevelDisplay.innerText = this.state.level;
                 if(!this.state.activeSideQuests) this.state.activeSideQuests = [];
                 if(!this.state.claimedAchievements) this.state.claimedAchievements = [];
                 if(!this.state.sqCounts) this.state.sqCounts = {};
+                if(this.state.restTimer === undefined) this.state.restTimer = 180;
+
+                // NEW: Boss Trackers
+                if(this.state.daysUntilBoss === undefined) this.state.daysUntilBoss = 15;
+                if(this.state.isBossActive === undefined) this.state.isBossActive = false;
                 
                 if(!this.state.milestones) {
                     this.state.milestones = {
