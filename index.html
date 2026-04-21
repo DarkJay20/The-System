@@ -19,15 +19,8 @@
     <div class="scanline"></div>
     <div id="notification-area"></div>
 
-    <div id="loading-screen">
+  <div id="loading-screen">
         <div class="loader-content">
-            <svg width="80" height="80" viewBox="0 0 100 100" class="svg-spin-slow" style="margin: 0 auto 20px auto; display: block;">
-                <circle cx="50" cy="50" r="45" stroke="var(--primary)" stroke-width="1" stroke-dasharray="10 5" fill="none" opacity="0.5"/>
-                <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" stroke="var(--primary)" stroke-width="2" fill="none" class="svg-glow-pulse"/>
-                <circle cx="50" cy="50" r="10" fill="var(--primary)" opacity="0.8">
-                    <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
-                </circle>
-            </svg>
             <h1 class="system-title pulse">SYSTEM INITIALIZING</h1>
             <div class="loading-bar-container"><div class="loading-bar"></div></div>
             <p class="quote">"You don't miss workouts.<br>You fail quests."</p>
@@ -49,10 +42,20 @@
     <span id="hard-mode-badge" class="hidden" style="color:var(--danger); font-size:0.7rem; border:1px solid var(--danger); padding:2px 5px; border-radius:4px; text-shadow:0 0 5px var(--danger);">HARDCORE</span>
 </div>
             <div class="gold-container">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: coin-spin 3s linear infinite;">
-                    <circle cx="12" cy="12" r="10" stroke="var(--gold)" stroke-width="2" fill="rgba(255, 215, 0, 0.2)"/>
-                    <path d="M12 6V18" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12Z" stroke="var(--gold)" stroke-width="2"/>
+                <svg width="20" height="20" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000" style="animation: coin-spin 3s linear infinite;">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <path style="fill:#FFDA44;" d="M256,512C114.842,512,0,397.158,0,256S114.842,0,256,0s256,114.842,256,256S397.158,512,256,512z"></path> 
+                        <path style="fill:#FFA733;" d="M256,0L256,0v5.565V512l0,0c141.158,0,256-114.842,256-256S397.158,0,256,0z"></path> 
+                        <path style="fill:#EE8700;" d="M256,439.652c-101.266,0-183.652-82.391-183.652-183.652S154.733,72.348,256,72.348 S439.652,154.739,439.652,256S357.266,439.652,256,439.652z"></path> 
+                        <path style="fill:#CC7400;" d="M439.652,256c0-101.261-82.386-183.652-183.652-183.652v367.304 C357.266,439.652,439.652,357.261,439.652,256z"></path> 
+                        <path style="fill:#FFDA44;" d="M263.805,241.239c-17.517-9.261-35.631-18.826-35.631-29.761c0-15.348,12.484-27.826,27.826-27.826 s27.826,12.478,27.826,27.826c0,9.217,7.473,16.696,16.696,16.696s16.696-7.479,16.696-16.696c0-27.956-18.867-51.548-44.522-58.842 v-7.94c0-9.217-7.473-16.696-16.696-16.696s-16.696,7.479-16.696,16.696v7.94c-25.655,7.294-44.522,30.886-44.522,58.842 c0,31.044,29.619,46.707,53.413,59.283c17.517,9.261,35.631,18.826,35.631,29.761c0,15.348-12.484,27.826-27.826,27.826 s-27.826-12.478-27.826-27.826c0-9.217-7.473-16.696-16.696-16.696s-16.696,7.479-16.696,16.696 c0,27.956,18.867,51.548,44.522,58.842v7.94c0,9.217,7.473,16.696,16.696,16.696s16.696-7.479,16.696-16.696v-7.94 c25.655-7.294,44.522-30.886,44.522-58.842C317.217,269.478,287.598,253.815,263.805,241.239z"></path> 
+                        <g> 
+                            <path style="fill:#FFA733;" d="M272.696,367.304v-7.94c25.655-7.294,44.522-30.886,44.522-58.842 c0-31.044-29.619-46.707-53.413-59.283c-2.616-1.384-5.226-2.777-7.805-4.176v37.875c14.699,7.976,27.826,16.283,27.826,25.584 c0,15.348-12.484,27.826-27.826,27.826V384C265.223,384,272.696,376.521,272.696,367.304z"></path> 
+                            <path style="fill:#FFA733;" d="M283.826,211.478c0,9.217,7.473,16.696,16.696,16.696s16.696-7.479,16.696-16.696 c0-27.956-18.867-51.548-44.522-58.842v-7.94c0-9.217-7.473-16.696-16.696-16.696v55.652 C271.342,183.652,283.826,196.13,283.826,211.478z"></path> 
+                        </g> 
+                    </g>
                 </svg>
                 <span id="player-gold">0</span>
             </div>
@@ -62,12 +65,12 @@
         <main id="status-screen" class="screen active">
             
             <div class="hero-section">
-    <img src="The System Instructor.png" alt="System Instructor" class="instructor-image">
-    
-    <div class="rank-banner-container">
+                <img src="WeakVessel.png" id="instructor-avatar" alt="System Instructor" class="instructor-image" style="object-fit: contain;">
+                
+                <div class="rank-banner-container">
         <div class="rank-glow"></div>
         <h1 id="main-rank-display">WEAK VESSEL</h1>
-        <p class="rank-subtitle">CURRENT CLASSIFICATION</p>
+        <p class="rank-subtitle">CURRENT RANK</p>
         <div class="rank-level">LEVEL: <span id="rank-level-display">1</span></div>
     </div>
 </div>
@@ -124,6 +127,16 @@
             <div id="shop-list" class="shop-grid"></div>
         </main>
 
+         <main id="inventory-screen" class="screen">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+                <h2 class="section-title" style="margin: 0; border: none; padding: 0;"><i class="fa-solid fa-box-open"></i> INVENTORY</h2>
+                <button class="icon-btn" onclick="app.navigateTo('shop-screen')"><i class="fa-solid fa-arrow-left"></i> BACK TO SHOP</button>
+            </div>
+            
+            <div id="inventory-list" style="display: flex; flex-direction: column; gap: 12px; padding-bottom: 30px;">
+                </div>
+        </main>
+
         <main id="achievements-screen" class="screen">
             <h2 class="section-title">TITLES & FEATS</h2>
             <div id="achievements-list" class="achievements-grid"></div>
@@ -140,6 +153,13 @@
 
         <main id="settings-screen" class="screen">
             <h2 class="section-title">SYSTEM CONFIG</h2>
+            <div class="card glass">
+                <h3>MISSION PROTOCOLS</h3>
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label>REST TIMER (SECONDS) - Triggers after finishing an exercise</label>
+                    <input type="number" id="setting-rest-timer" onchange="app.updateRestTimer()" min="0">
+                </div>
+            </div>
             <div class="card glass">
                 <h3>VISUAL INTERFACE</h3>
                 <div id="theme-selector-list" class="theme-grid"></div>
@@ -201,15 +221,25 @@
         </main>
 
         <main id="dungeon-screen" class="screen">
-            <div class="dungeon-header"><h2 class="danger-text">DUNGEON INSTANCE</h2><p id="dungeon-subtitle">...</p></div>
-            <div id="exercise-list" class="scroll-area"></div>
-            <div class="card glass bonus-panel">
-                <h3>BONUS OBJECTIVES</h3>
-                <label class="checkbox-row"><input type="checkbox" id="bonus-form"> <span>Perfect Form (+20 EXP)</span></label>
-                <label class="checkbox-row"><input type="checkbox" id="bonus-protein"> <span>Protein Intake (+20 EXP)</span></label>
-                <label class="checkbox-row"><input type="checkbox" id="bonus-fatigue"> <span>Pushed Past Failure (+30 EXP)</span></label>
+            <div style="border: 1px solid var(--primary); background: rgba(0, 240, 255, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 20px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary);"></div>
+                <h2 style="color: var(--primary); margin: 0; font-size: 1.5rem; letter-spacing: 2px; font-family: var(--font-head);"><i class="fa-solid fa-crosshairs"></i> ACTIVE MISSION</h2>
+                <p id="dungeon-subtitle" style="margin: 5px 0 0 0; color: #fff; font-size: 1.1rem; font-family: var(--font-head); letter-spacing: 1px;">...</p>
             </div>
-            <div class="action-row"><button class="btn-cancel" onclick="app.navigateTo('status-screen')">RETREAT</button><button class="action-btn" onclick="app.finishWorkout()">COMPLETE</button></div>
+            
+            <div id="exercise-list" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;"></div>
+            
+            <div class="card glass bonus-panel" style="border-left: 4px solid var(--gold); margin-top: 0;">
+                <h3 style="color: var(--gold);"><i class="fa-solid fa-star"></i> HIDDEN OBJECTIVES</h3>
+                <label class="checkbox-row"><input type="checkbox" id="bonus-form"> <span>Perfect Execution (+20 EXP)</span></label>
+                <label class="checkbox-row"><input type="checkbox" id="bonus-protein"> <span>Consume Nutrients (+20 EXP)</span></label>
+                <label class="checkbox-row"><input type="checkbox" id="bonus-fatigue"> <span>Push Past Limits (+30 EXP)</span></label>
+            </div>
+            
+            <div style="display: flex; gap: 10px;">
+                <button class="btn-cancel" style="flex: 1; margin: 0;" onclick="app.navigateTo('status-screen')">ABORT</button>
+                <button class="action-btn" style="flex: 2; margin: 0; font-size: 1.2rem;" onclick="app.finishWorkout()">EXTRACT</button>
+            </div>
         </main>
     </div>
 
@@ -235,15 +265,32 @@
         </div>
     </div>
 
-    <div id="inventory-modal" class="modal">
-        <div class="modal-content glass" style="width: 90%; max-width: 400px; text-align: left;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-                <h2 style="margin:0;">INVENTORY</h2>
-                <i class="fa-solid fa-xmark" onclick="app.closeInventory()" style="cursor:pointer; font-size:1.5rem;"></i>
+   
+
+<div id="shop-item-modal" class="modal" style="background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px);">
+        <div class="modal-content glass" style="max-width: 280px; width: 90%; position: relative; text-align: center; border-color: var(--primary); padding: 20px 15px;">
+            <i class="fa-solid fa-xmark" onclick="app.closeItemModal()" style="position: absolute; top: 12px; right: 12px; cursor: pointer; color: var(--text-dim); font-size: 1.2rem; transition: 0.2s; z-index: 10;"></i>
+            
+            <div id="modal-item-icon" style="width: 70px; height: 70px; margin: 0 auto 10px auto; display: flex; justify-content: center; align-items: center; filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));">
+                </div>
+            
+            <h2 id="modal-item-name" style="margin-bottom: 5px; color: #fff; letter-spacing: 1px; font-size: 1.1rem;">ITEM NAME</h2>
+            <p id="modal-item-desc" style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 15px; line-height: 1.3; padding: 0 5px;">Description goes here.</p>
+            
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid #333; border-radius: 8px; padding: 10px; margin-bottom: 15px;">
+                <div id="modal-item-qty-container" style="display: none; margin-bottom: 10px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+                    <label style="font-size: 0.65rem; color: var(--text-dim); display: block; margin-bottom: 5px; letter-spacing: 1px;">QUANTITY</label>
+                    <input type="number" id="modal-item-qty" value="1" min="1" oninput="app.updateModalPrice()" style="width: 80px; background: rgba(0,0,0,0.8); border: 1px solid var(--primary); color: #fff; padding: 5px; text-align: center; border-radius: 4px; font-family: var(--font-head); outline: none; font-size: 1rem; font-weight: bold; box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.1);">
+                </div>
+                
+                <div style="font-size: 0.65rem; color: var(--text-dim); letter-spacing: 1px; margin-bottom: 3px;">TOTAL COST</div>
+                <div id="modal-item-price" class="shop-price" style="font-size: 1.2rem; margin: 0; text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);"><i class="fa-solid fa-coins"></i> 0</div>
             </div>
-            <div id="inventory-list" class="shop-grid" style="max-height: 400px; overflow-y: auto;"></div>
+            
+            <button id="modal-buy-btn" class="action-btn" onclick="app.confirmPurchase()" style="font-size: 0.9rem; padding: 10px; margin-top: 0;">CONFIRM PURCHASE</button>
         </div>
     </div>
+
 
     <div id="casino-modal" class="modal">
         <div class="modal-content glass" style="width: 95%; max-width: 450px; text-align: center; border-color: var(--gold); box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);">
@@ -371,6 +418,35 @@
         </div>
     </div>
 
+    <div id="mechanics-modal" class="modal">
+        <div class="modal-content glass" style="max-width: 400px; text-align: center; border-color: var(--danger);">
+            
+            <h2 style="color: var(--danger); margin-bottom: 10px; text-shadow: 0 0 10px var(--danger);">SYSTEM RULES</h2>
+            
+            <div style="font-size: 0.9rem; color: #ddd; text-align: left; line-height: 1.5; margin-bottom: 20px; max-height: 50vh; overflow-y: auto; padding-right: 10px;" class="profile-controls-scroll">
+                
+                <p style="color: var(--primary); border-left: 2px solid var(--primary); padding-left: 10px; margin: 15px 0; background: rgba(0, 240, 255, 0.05);">
+                    <strong>THE DAILY GRIND:</strong> You must complete your assigned mission every single day. Completing missions grants EXP to level up and Gold to spend in the Shop.
+                </p>
+
+                <p style="color: var(--danger); border-left: 2px solid var(--danger); padding-left: 10px; margin: 15px 0; background: rgba(255, 42, 42, 0.05);">
+                    <strong>THE PENALTY PROTOCOL:</strong> If you miss a day, The System will deduct <strong>100 EXP</strong> for every day absent. Dropping below your Level's EXP threshold causes <strong>Demotion</strong> and the permanent loss of Stat Points.
+                </p>
+
+                <p style="color: #ffaa00; border-left: 2px solid #ffaa00; padding-left: 10px; margin: 15px 0; background: rgba(255, 170, 0, 0.05);">
+                    <strong>RED GATES (BOSSES):</strong> Every 15 days, a Red Gate spawns. Exercise workloads increase by <strong>15%</strong>. Clearing it yields <strong>3X EXP</strong>. Failing it drains 100 Gold and triggers the Penalty Protocol.
+                </p>
+
+                <p style="color: var(--gold); border-left: 2px solid var(--gold); padding-left: 10px; margin: 15px 0; background: rgba(255, 215, 0, 0.05);">
+                    <strong>SHOP & INVENTORY:</strong> Use Gold to buy Elixirs (save your streak), Dungeon Keys (unlock rest days), and Passive Rings. You can also gamble Gold in the Casino.
+                </p>
+
+            </div>
+
+            <button class="action-btn" style="border-color: var(--danger); color: var(--danger);" onclick="app.acknowledgeMechanics()">I UNDERSTAND</button>
+        </div>
+    </div>
+
     <!-- PROFILE MODAL -->
    <div id="profile-modal" class="modal">
         <div class="modal-content glass" style="max-width: 450px; width: 95%; position: relative; border-color: var(--primary); padding: 25px 20px;">
@@ -437,6 +513,25 @@
             
             </div>
     </div>
+
+    <div id="penalty-modal" class="modal">
+        <div class="modal-content system-window glass" style="max-width: 350px; text-align: center; border-color: var(--danger); box-shadow: 0 0 40px rgba(255, 42, 42, 0.2);">
+            <h1 class="levelup-text" style="color: var(--danger); text-shadow: 0 0 20px var(--danger); font-size: 2.2rem; margin-top: 0;">SYSTEM PENALTY</h1>
+            <i class="fa-solid fa-triangle-exclamation" style="font-size: 3rem; color: var(--danger); margin: 15px 0; filter: drop-shadow(0 0 10px rgba(255,0,0,0.5));"></i>
+            
+            <p style="color: #fff; font-size: 1.1rem; margin-bottom: 5px; font-family: var(--font-head); letter-spacing: 1px;">FAILURE TO COMPLETE OBJECTIVES</p>
+            <p style="color: var(--text-dim); margin-bottom: 20px; font-size: 0.85rem;">Days Missed: <span id="penalty-days" style="color: #fff; font-weight: bold; font-size: 1rem;">0</span></p>
+            
+            <div style="background: rgba(255,0,0,0.1); border: 1px solid rgba(255,42,42,0.3); border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                <div style="font-size: 0.75rem; color: var(--danger); letter-spacing: 2px; margin-bottom: 5px;">EXP DEDUCTION</div>
+                <div style="font-size: 2.5rem; font-family: var(--font-head); font-weight: bold; color: var(--danger); line-height: 1;">
+                    -<span id="penalty-amount">0</span>
+                </div>
+            </div>
+
+            <button class="action-btn" style="border-color: var(--danger); color: var(--danger); margin-top: 0;" onclick="document.getElementById('penalty-modal').style.display = 'none';">ACCEPT PUNISHMENT</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 
     <script>
@@ -448,5 +543,20 @@
             });
         }
     </script>
+
+   <div id="rest-timer-overlay" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(6px); z-index: 9999; display: flex; align-items: center; justify-content: center;">
+        
+        <div class="glass" style="width: 90%; max-width: 350px; background: rgba(10, 15, 25, 0.95); border: 1px solid var(--primary); padding: 35px 25px; border-radius: 12px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 0 30px rgba(0,240,255,0.15);">
+            <div style="color: var(--primary); font-family: var(--font-head); font-size: 1rem; letter-spacing: 2px; margin-bottom: 15px;"><i class="fa-solid fa-stopwatch"></i> RECOVERY PROTOCOL</div>
+            <div id="rest-timer-display" style="font-size: 4.5rem; font-family: var(--font-head); font-weight: bold; color: #fff; text-shadow: 0 0 20px rgba(0, 240, 255, 0.5); line-height: 1; margin-bottom: 25px;">03:00</div>
+            
+            <div style="display: flex; gap: 15px;">
+                <button class="action-btn" style="padding: 12px; margin: 0; flex: 1; font-size: 1rem;" onclick="app.modifyTimer(30)">+30s</button>
+                <button class="btn-cancel" style="padding: 12px; margin: 0; flex: 1; font-size: 1rem;" onclick="app.closeRestTimer()">SKIP</button>
+            </div>
+        </div>
+        
+    </div>
+
 </body>
 </html>
