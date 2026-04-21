@@ -1,6 +1,16 @@
+
+
+
 // =========================================
 // THE SYSTEM - CORE JAVASCRIPT
 // =========================================
+
+// --- PWA INSTALL EVENT CATCHER ---
+window.deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); // Stop the browser's default mini-infobar
+    window.deferredPrompt = e; // Stash it for our custom modal
+});
 
 // --- AUDIO SYSTEM (Web Audio API) ---
 const sfx = {
@@ -522,12 +532,44 @@ const app = {
             setTimeout(() => { 
                 loader.style.display = 'none'; 
                 
-                if (!this.state.hasCompletedOnboarding) {
-                    const onboardModal = document.getElementById('onboarding-modal');
-                    if (onboardModal) onboardModal.style.display = 'flex';
+                // NEW: Intercept flow for Installation
+                if (window.deferredPrompt) {
+                    document.getElementById('install-modal').style.display = 'flex';
+                    if(window.sfx) sfx.playTone(440, 'sine', 0.2, 0.1); // Scanner sound
+                } else {
+                    this.continueBootSequence();
                 }
             }, 500);
         }
+    },
+
+    continueBootSequence: function() {
+        // This picks up right where the loader or the install modal leaves off
+        if (!this.state.hasCompletedOnboarding) {
+            const onboardModal = document.getElementById('onboarding-modal');
+            if (onboardModal) onboardModal.style.display = 'flex';
+        }
+    },
+
+    installPWA: function() {
+        if (window.deferredPrompt) {
+            document.getElementById('install-modal').style.display = 'none';
+            window.deferredPrompt.prompt(); // Show the actual OS install prompt
+            
+            window.deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    this.notify("SYSTEM INSTALLED TO DEVICE.");
+                }
+                window.deferredPrompt = null;
+                this.continueBootSequence(); // Move on to tutorial
+            });
+        }
+    },
+
+    skipInstall: function() {
+        document.getElementById('install-modal').style.display = 'none';
+        window.deferredPrompt = null; // Discard the prompt
+        this.continueBootSequence(); // Move on to tutorial
     },
 
     updateAchievementBadge: function() {
