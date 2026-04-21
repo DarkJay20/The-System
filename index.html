@@ -381,6 +381,28 @@
     <div id="onboarding-modal" class="modal">
         <div class="modal-content glass" style="max-width: 400px; text-align: center; border-color: var(--primary);">
             
+
+<div id="install-modal" class="modal">
+        <div class="modal-content glass" style="max-width: 400px; text-align: center; border-color: var(--primary); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);">
+            
+            <h2 style="color: var(--primary); margin-bottom: 10px; text-shadow: 0 0 10px var(--primary);">SYSTEM LINK DETECTED</h2>
+            
+            <div style="font-size: 0.9rem; color: #ddd; text-align: left; line-height: 1.5; margin-bottom: 20px;">
+                <p style="text-align: center; margin-bottom: 15px;">
+                    <i class="fa-solid fa-mobile-screen-button" style="font-size: 3rem; color: var(--primary); filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.5));"></i>
+                </p>
+                <p style="color: var(--primary); border-left: 2px solid var(--primary); padding-left: 10px; margin: 15px 0; background: rgba(0, 240, 255, 0.05);">
+                    <strong>OPTIMIZATION AVAILABLE:</strong> Install THE SYSTEM directly to your device's home screen for offline access, fullscreen immersion, and maximum performance.
+                </p>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <button class="btn-cancel" style="flex: 1; margin-top: 0;" onclick="app.skipInstall()">SKIP</button>
+                <button class="action-btn" style="flex: 2; margin-top: 0;" onclick="app.installPWA()">INSTALL SYSTEM</button>
+            </div>
+        </div>
+    </div>
+
             <!-- Step 1: Player Registration -->
             <div id="onboarding-step-1">
                 <h2 style="color: var(--primary); margin-bottom: 10px; text-shadow: 0 0 10px var(--primary);">SYSTEM AWAKENING</h2>
