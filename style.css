@@ -28,48 +28,6 @@ body.theme-red { --primary: #ff2a2a; --secondary: #990000; --danger: #ff5555; }
 body.theme-green { --primary: #00ff9d; --secondary: #008855; --danger: #ff5555; }
 body.theme-purple { --primary: #d500ff; --secondary: #7700ff; --danger: #ff2a2a; }
 
-body.theme-monarch { 
-    --bg-dark: #000000; 
-    --card-bg: rgba(10, 10, 10, 0.8); 
-    --primary: #ffffff; 
-    --secondary: #333333; 
-    --danger: #ffffff; 
-    --success: #ffffff; 
-    --text-dim: #888888; 
-    --gold: #ffffff; 
-}
-
-body.theme-cyberpunk { 
-    --bg-dark: #0b0014; 
-    --card-bg: rgba(20, 0, 30, 0.8); 
-    --primary: #ff00ff; 
-    --secondary: #00ffff; 
-    --danger: #ff0055; 
-    --success: #00ff9d; 
-    --gold: #ffee00; 
-}
-
-body.theme-light { 
-    --bg-dark: #f0f2f5; 
-    --card-bg: rgba(255, 255, 255, 0.9); 
-    --primary: #1877f2; 
-    --secondary: #004499; 
-    --danger: #ff4d4f; 
-    --success: #42b72a; 
-    --text-main: #050505; 
-    --text-dim: #65676b; 
-    --gold: #e6b800; 
-}
-
-/* Light Theme Specific Overrides */
-body.theme-light .card { border: 1px solid #ddd; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-body.theme-light .top-bar, body.theme-light .bottom-nav { background: #ffffff; border-color: #ddd; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-body.theme-light .stat-val { color: #000; text-shadow: none; }
-body.theme-light .shop-item { background: #f7f8fa; border: 1px solid #ddd; }
-body.theme-light .input-group input { background: #fff; border: 1px solid #ccc; color: #000; }
-body.theme-light .bg-grid, body.theme-light .scanline { opacity: 0.1; }
-body.theme-light .qty-selector { border-color: #ddd; background: #fff; }
-body.theme-light .heat-cell.c-grey { background: #e0e0e0; }
 
 /* Font Themes */
 body.font-default { --font-main: 'Exo 2', sans-serif; --font-head: 'Rajdhani', sans-serif; }
@@ -376,7 +334,7 @@ h1, h2, h3, .qty-input, .shop-price, .gold-container {
 }
 
 .rank-subtitle {
-    font-size: 0.65rem;
+    font-size: 0.60rem;
     letter-spacing: 2px;
     opacity: 0.5;
     margin: 5px 0 10px 0;
@@ -412,6 +370,34 @@ h1, h2, h3, .qty-input, .shop-price, .gold-container {
 .stat-btn { position: absolute; right: 10px; top: 20px; background: var(--primary); border: none; color: #000; width: 30px; height: 30px; border-radius: 4px; font-weight: bold; cursor: pointer; box-shadow: 0 0 10px var(--primary); }
 
 /* --- QUESTS & EXERCISES --- */
+
+/* Mission Objective Cards */
+.mission-card {
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Sci-fi corners */
+.mission-card::before {
+    content: ''; position: absolute; top: -1px; left: -1px; width: 10px; height: 10px; border-top: 2px solid var(--primary); border-left: 2px solid var(--primary); transition: 0.3s;
+}
+.mission-card::after {
+    content: ''; position: absolute; bottom: -1px; right: -1px; width: 10px; height: 10px; border-bottom: 2px solid var(--primary); border-right: 2px solid var(--primary); transition: 0.3s;
+}
+
+.mission-card.completed-objective {
+    border-color: var(--success);
+    opacity: 0.6;
+    background: rgba(0, 255, 157, 0.05);
+}
+.mission-card.completed-objective::before, .mission-card.completed-objective::after {
+    border-color: var(--success);
+}
 .quest-card { border-left: 4px solid var(--primary); position: relative; overflow: hidden; cursor: pointer; transition: 0.2s; }
 .quest-card:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
 .quest-status { font-size: 0.7rem; color: var(--success); margin-bottom: 5px; letter-spacing: 1px; }
@@ -426,6 +412,11 @@ h1, h2, h3, .qty-input, .shop-price, .gold-container {
 .exercise-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; margin-bottom: 10px; border-left: 2px solid #333; }
 .set-row { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
 .set-check { appearance: none; width: 30px; height: 30px; border: 1px solid #444; background: #111; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.set-check:disabled { 
+    opacity: 0.3; 
+    cursor: not-allowed; 
+    border-color: var(--danger); /* Adds a slight red warning tint */
+}
 .set-check:checked { background: var(--primary); border-color: var(--primary); }
 .set-check:checked::after { content: '✓'; color: #000; font-weight: bold; }
 .bonus-panel { margin-top: 20px; }
@@ -436,10 +427,68 @@ h1, h2, h3, .qty-input, .shop-price, .gold-container {
 .delete-btn { color: var(--danger); background: transparent; border: 1px solid var(--danger); padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; }
 
 /* --- SHOP & ITEMS --- */
-.shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.shop-item { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; padding: 15px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s; }
-.shop-item:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.5); background: rgba(255,255,255,0.02); }
-.shop-price { color: var(--gold); font-weight: bold; margin: 8px 0; text-shadow: 0 0 5px rgba(255,215,0,0.3); }
+.shop-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /* Forces 3 items per row */
+    gap: 12px; 
+}
+
+.shop-item { 
+    background: #2029413b; 
+    border: 1px solid rgba(0, 238, 255, 0.397); 
+    border-radius: 8px; 
+    padding: 15px 10px 12px 10px; 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    align-items: center;
+    transition: 0.2s; 
+    cursor: pointer; /* Makes it act like a button */
+    min-height: 115px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.shop-item:hover { 
+    border-color: var(--primary); 
+    transform: translateY(-4px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 15px rgba(0, 240, 255, 0.1); 
+    background: rgba(0, 240, 255, 0.03); 
+}
+
+.shop-icon-container { 
+    height: 55px; /* Increased container height so they don't get cut off */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 8px; 
+    width: 100%;
+}
+
+.shop-icon-container svg, .shop-icon-container img { 
+    width: 75px;  /* Increased from 32px */
+    height: 75px; /* Increased from 32px */
+    object-fit: contain; /* CRITICAL: This prevents any squishing/flattening */
+    
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Adds a slight floating effect to the PNGs when you hover over the shop item */
+.shop-item:hover .shop-icon-container img {
+    transform: translateY(-2px) scale(1.1);
+}
+
+.shop-item-name {
+    font-size: 0.65rem;
+    font-family: var(--font-head);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 5px;
+    line-height: 1.1;
+}
+
+.shop-price { color: var(--gold);  margin: 0; text-shadow: 0 0 5px rgba(255,215,0,0.3); }
 
 .buy-btn { background: #111; border: 1px solid var(--primary); color: var(--primary); padding: 8px; width: 100%; font-family: var(--font-head); cursor: pointer; font-weight: bold; border-radius: 4px; transition: 0.2s; }
 .buy-btn:hover:not(:disabled) { background: var(--primary); color: #000; box-shadow: 0 0 10px var(--primary); }
@@ -819,3 +868,152 @@ h1, h2, h3, .qty-input, .shop-price, .gold-container {
 .profile-controls-scroll::-webkit-scrollbar { width: 4px; }
 .profile-controls-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
 .profile-controls-scroll::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 2px; }
+
+
+/* =========================================
+   INVENTORY SYSTEM
+   ========================================= */
+.inventory-item {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    border-radius: 8px;
+    padding: 8px 12px; /* Reduced padding to make the row sleeker */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px; 
+    transition: 0.2s;
+}
+
+.inventory-item:hover {
+    border-color: var(--primary);
+    background: rgba(0, 240, 255, 0.05);
+}
+
+.inventory-icon {
+    width: 32px; /* Reduced from 45px */
+    height: 32px; /* Reduced from 45px */
+    flex-shrink: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inventory-icon img, .inventory-icon svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Keeps PNG ratios perfect */
+    /* Removed drop-shadow to match the flat shop look */
+}
+
+.inventory-details {
+    flex: 1; /* Forces the text to take up the middle space */
+    min-width: 0; /* CRITICAL: Prevents long text from pushing the button off-screen */
+}
+
+.inventory-name {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 0 0 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds '...' if the name is too long */
+}
+
+.inventory-count {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.inventory-action {
+    flex-shrink: 0; /* CRITICAL: Prevents the button from being crushed by text */
+}
+
+/* Custom Scrollbar for Inventory */
+#inventory-list::-webkit-scrollbar { width: 4px; }
+#inventory-list::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+#inventory-list::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 2px; }
+
+/* =========================================
+   RED GATE BOSS EFFECTS
+   ========================================= */
+.quest-card.boss-mode {
+    border-color: var(--danger) !important;
+    background: rgba(255, 42, 42, 0.05);
+    box-shadow: inset 0 0 30px rgba(255, 42, 42, 0.1), 0 0 20px rgba(255, 42, 42, 0.2) !important;
+    animation: portal-pulse 2s infinite alternate;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Swirling Red Portal Background */
+.quest-card.boss-mode::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255, 42, 42, 0.2) 0%, transparent 50%),
+                repeating-conic-gradient(from 0deg, transparent 0deg, rgba(255, 42, 42, 0.05) 10deg, transparent 20deg);
+    transform: translate(-50%, -50%);
+    animation: spin-slow 15s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Floating Ash Particles inside the card */
+.quest-card.boss-mode::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(1px 1px at 20px 30px, #ff2a2a, rgba(0,0,0,0)),
+                      radial-gradient(1px 1px at 40px 70px, #ffaa00, rgba(0,0,0,0)),
+                      radial-gradient(1px 1px at 50px 160px, #ff2a2a, rgba(0,0,0,0)),
+                      radial-gradient(1px 1px at 90px 40px, #ffaa00, rgba(0,0,0,0));
+    background-size: 100px 200px;
+    animation: float-ash 4s linear infinite;
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Forces the SVG Icon to turn blood red */
+.quest-card.boss-mode #quest-indicator path {
+    fill: var(--danger) !important;
+    filter: drop-shadow(0 0 8px var(--danger));
+}
+
+@keyframes portal-pulse {
+    0% { box-shadow: inset 0 0 20px rgba(255, 42, 42, 0.1), 0 0 10px rgba(255, 42, 42, 0.2); }
+    100% { box-shadow: inset 0 0 60px rgba(255, 42, 42, 0.3), 0 0 25px rgba(255, 42, 42, 0.5); border-color: #ff5555 !important; }
+}
+
+@keyframes float-ash {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-200px); }
+}
+
+/* =========================================
+   RED GATE MISSION CARDS
+   ========================================= */
+.red-gate-card {
+    border-color: var(--danger) !important;
+    background: rgba(255, 42, 42, 0.05) !important;
+    box-shadow: inset 0 0 15px rgba(255, 42, 42, 0.1) !important;
+}
+
+.red-gate-card::before, .red-gate-card::after {
+    border-color: var(--danger) !important;
+}
+
+/* Make checkboxes look hostile */
+.red-gate-card .set-check {
+    border-color: rgba(255, 42, 42, 0.4) !important;
+}
+
+.red-gate-card .set-check:checked {
+    background: var(--danger) !important;
+    border-color: var(--danger) !important;
+    box-shadow: 0 0 10px rgba(255, 42, 42, 0.4);
+}
